@@ -1,0 +1,216 @@
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  font: 16px/28px Lato, 'Open Sans', sans-serif;
+  color: #333;
+  position: relative;
+}
+
+a {
+  color: #1e3160;
+  transition: all .3s ease;
+}
+a:hover {
+  color: #ce2128;
+  text-decoration: none;
+}
+
+.block-header::after {
+  content: "";
+  display: block;
+  margin: 20px auto;
+  height: 3px;
+  width: 60px;
+  background-color: #ce2128;
+}
+
+#header .btn-donate {
+  background: #ce2128;
+  color: #fff;
+  webkit-box-shadow: 0px 12px 25px 0px rgba(191, 13, 62, 0.43);
+  -moz-box-shadow: 0px 12px 25px 0px rgba(191, 13, 62, 0.43);
+  box-shadow: 0px 12px 25px 0px rgba(191, 13, 62, 0.43);
+  font-size: 16px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+#footer .btn-donate {
+  background-color: #ce2028;
+  position: relative;
+}
+#footer .btn-donate::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #ce2028;
+  right: -2000px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.btn-donate span {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-light {
+  box-shadow: 0 -5px 30px rgba(78, 82, 99, 0.3);
+}
+
+
+
+#home-slider {
+  position: relative;
+  border-bottom: 4px solid #ce2028;
+  /* height: 80vh; */
+}
+#upcoming-events h4 {
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+  color: #ce2028;
+}
+#upcoming-events h6 {
+  font-size: 14px;
+  text-transform: capitalize;
+  padding: 0;
+  margin: 0;
+}
+#upcoming-events .event-date {
+  background-color: #ce2028;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+#upcoming-events .event-month {
+  font-size: 14px;
+  line-height: 1;
+}
+#upcoming-events .event-day {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+#upcoming-events .event-info-item {
+  font-size: 14px;
+  color: #999;
+  line-height: 1.6;
+}
+#upcoming-events .event-info-item i,
+#upcoming-events a {
+  color: #333;
+}
+
+.widget-holder .entry{
+  position: relative;
+  height: 100%;
+}
+
+.widget-holder .entry,
+.widget-holder .entry .entry-attachment,
+.widget-holder .entry .entry-attachment figure{
+  height: 100%;
+}
+
+.widget-holder .entry .entry-body{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 30px 25px;
+  padding-bottom: 60px;
+  color: #fff;
+}
+
+  .widget-holder .entry .entry-title a,
+  .widget-holder .entry h6{
+    color: #fff;
+  }
+
+  .widget-holder .entry .entry-title a{
+    border-bottom: 1px solid transparent;
+  }
+
+  .widget-holder .entry .entry-title a:hover{
+    border-bottom-color: inherit;
+  }
+
+  .widget-holder .entry .thumbnail-attachment img{
+    width: 100%;
+    height: 100%;
+  }
+
+  .widget-holder .entry h6{
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  .widget-holder .entry h6:not(:last-child){
+    margin-bottom: 15px;
+  }
+
+  .widget-holder .entry .entry-title:not(:last-child){
+    margin-bottom: 5px;
+  }
+
+  .widget-holder .entry-date{
+    color: #909397;
+    font-size: 14px;
+  }
+
+#footer {
+  overflow: hidden;
+}
+
+#footer .ft-top {
+  background-color: #1e3160;
+}
+
+.social-icons > li > a{
+  text-align: center;
+  line-height: 46px;
+  width: 50px;
+  height: 50px;
+  display: block;
+  border: 2px solid #888f9f;
+  border-radius: 50px;
+  color: #1f325f;
+}
+
+.social-icons > li > a:hover{
+  border-color: #333;
+}
+
+.social-icons.style-2 > li > a{
+  border-color: #ccc;
+  color: #333;
+}
+
+.social-icons.style-2 > li > a:hover{
+  border-color: #333;
+}
+
+.social-icons.v-type{
+margin: -5px 0;
+}
+
+.social-icons.v-type > li{
+  display: block;
+  padding: 5px 0;
+}
+
+#home-slider .social-icons{
+  position: absolute;
+  right: 50px;
+  top: 55%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

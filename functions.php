@@ -1,4 +1,7 @@
 <?php
+
+show_admin_bar( false );
+
 // Set content width value based on the theme's design
 if ( ! isset( $content_width ) )
 	$content_width = 1110;
@@ -20,19 +23,27 @@ function custom_theme_features()  {
 
 	// Add theme support for document Title tag
 	add_theme_support( 'title-tag' );
+
   // Add support for two custom navigation menus.
     register_nav_menus( array(
         'primary'   => __( 'Primary Menu', 'aalstem' ),
-        'secondary' => __('Secondary Menu', 'aalstem' )
+        'footer-links' => __('Footer Links', 'aalstem' )
     ) );
 }
 add_action( 'after_setup_theme', 'custom_theme_features' );
 
-function add_theme_scripts() {
-  wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', array(), '4.0.0', 'all' );
-  wp_enqueue_style( 'style', get_stylesheet_uri() );
 
-  wp_enqueue_style( 'aalstem', get_template_directory_uri() . '/assets/css/aalstem.css', array(), '1.1', 'all');
+// Register Custom Navigation Walker
+require_once get_stylesheet_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+
+
+function add_theme_scripts() {
+  wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.0.6/css/all.css', array(), '5.0.6', 'all' );
+  wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', array(), '4.0.0', 'all' );
+  wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,900', array(), null, 'all' );
+  // wp_enqueue_style( 'style', get_stylesheet_uri() );
+
+  wp_enqueue_style( 'aalstem', get_template_directory_uri() . '/assets/css/aalstem.css', array(), uniqid(), 'all');
 
   wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array( 'jquery' ), '1.12.9', true );
   wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', array( 'popper' ), '4.0.0', true );
