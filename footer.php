@@ -4,18 +4,18 @@
       <div class="row">
         <div class="col-md-6 col-lg-8">
           <!-- Begin MailChimp Signup Form -->
-          <div class="newsletter-form p-4 p-lg-5 bg-col-1">
+          <div class="newsletter-form py-4 p-lg-5 bg-col-1">
             <div class="row">
               <div class="col-lg-4 d-flex align-items-center justify-content-center">
                 <h5 class="f-20 mb-3 mb-lg-0 text-white text-center text-uppercase">Join our team</h5>
               </div>
               <div class="col-lg-8">
-                <form action="//lipo-natural.us9.list-manage.com/subscribe/post?u=63821adab4d8319263e450f74&amp;id=e59820419d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline m-0 p-0" target="_blank" novalidate="">
-                  <div class="input-group m-0">
-                    <input type="text" name="EMAIL" class="form-control required email w-75" id="mce-EMAIL" placeholder="Email address">
-                    <input type="text" name="ZIP" class="form-control border-left required zip w-25" id="mce-ZIP" placeholder="Zip code">
+                <form action="https://dionimercado.us14.list-manage.com/subscribe/post?u=c84d33d7d0a554f6988195f5b&amp;id=443f1cf726" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="bg-white rounded validate form-inline m-0 p-0" target="_blank" novalidate="">
+                  <div class="input-group">
+                    <input type="text" name="EMAIL" class="form-control border-0 required email" id="mce-EMAIL" placeholder="Email address">
+                    <input type="text" name="ZIP" class="form-control border-0 required zip" id="mce-ZIP" placeholder="Zip code">
                     <span class="input-group-btn">
-                      <button style="margin-right: -12px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="btn btn-default px-3 h-100 text-uppercase" type="submit" name="subscribe" id="mc-embedded-subscribe">Sign Up</button>
+                      <button class="btn px-3 h-100 border-left text-uppercase" type="submit" name="subscribe" id="mc-embedded-subscribe">Sign Up</button>
                     </span>
                   </div><!-- /input-group -->
                   <div id="mce-responses" class="clear">
@@ -54,7 +54,7 @@
           <h4 class="footer-title mb-5">Quick Links</h4>
           <?php wp_nav_menu( array( 'theme_location' => 'footer-links', 'container' => '', 'menu_id' => '', 'menu_class' => '' ) ); ?>
         </div>
-        <div class="col-md-4 col-lg-5">
+        <div class="col-md-4 col-lg-5 text-center text-md-left">
           <div class="widget">
             <h4 class="widget-title">Connect With Us</h4>
             <ul class="social-icons list-inline">
@@ -79,5 +79,6 @@
   </div>
 </footer>
 <?php wp_footer() ?>
+
 </body>
 </html>

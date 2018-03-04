@@ -14,7 +14,7 @@
       <img height="60" class="d-block d-md-none" src="<?php echo get_template_directory_uri() ?>/assets/images/logo-mobile.svg" alt="<?php bloginfo( 'name' ) ?>" />
     </a>
 
-    <a class="btn btn-donate py-2 px-4 ml-auto" href="#"><?php _e('Donate') ?></a>
+    <a class="btn btn-donate py-1 py-md-2 px-3 px-md-4 ml-auto" href="#"><?php _e('Donate') ?></a>
 
     <button class="ml-4 mr-md-5 p-0 border-0 navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#aalstemNavigation" aria-controls="aalstemNavigation" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
