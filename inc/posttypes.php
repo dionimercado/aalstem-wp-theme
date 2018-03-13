@@ -62,4 +62,55 @@ function Testimonials_post_type() {
 }
 add_action( 'init', 'Testimonials_post_type', 0 );
 
-?>
+
+
+// Register FAQs Post Type
+function faqs_post_type() {
+
+	$labels = array(
+		'name'                => __( 'FAQs', 'Post Type General Name', 'fuel_meals' ),
+		'singular_name'       => __( 'FAQ', 'Post Type Singular Name', 'fuel_meals' ),
+		'menu_name'           => __( 'FAQs', 'fuel_meals' ),
+		'parent_item_colon'   => __( 'Parent Faq:', 'fuel_meals' ),
+		'all_items'           => __( 'All Faqs', 'fuel_meals' ),
+		'view_item'           => __( 'View Faq', 'fuel_meals' ),
+		'add_new_item'        => __( 'Add New Faq', 'fuel_meals' ),
+		'add_new'             => __( 'Add New', 'fuel_meals' ),
+		'edit_item'           => __( 'Edit Faq', 'fuel_meals' ),
+		'update_item'         => __( 'Update Faq', 'fuel_meals' ),
+		'search_items'        => __( 'Search Faq', 'fuel_meals' ),
+		'not_found'           => __( 'Not found', 'fuel_meals' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'fuel_meals' ),
+	);
+	$rewrite = array(
+		'slug'                => 'faqs',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'post_type', 'fuel_meals' ),
+		'description'         => __( 'Fuel Meals FAQs', 'fuel_meals' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor'),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => false,
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-editor-help',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'faq', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'faqs_post_type', 0 );

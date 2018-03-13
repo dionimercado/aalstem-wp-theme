@@ -1,4 +1,9 @@
-<?php get_header() ?>
+<?php
+
+/* Template Name: Full Width */
+get_header();
+
+?>
 <main class="mb-5 pb-5">
   <div class="breadcrumbs-wrap py-5 mb-5">
     <div class="container">
@@ -9,7 +14,7 @@
       </ul>
     </div>
   </div>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col">
         <?php while( have_posts() ) : the_post() ?>

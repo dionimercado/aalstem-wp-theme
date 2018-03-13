@@ -1,5 +1,6 @@
 <?php get_header() ?>
-<section id="home-slider">
+
+<section id="hero">
   <?php echo do_shortcode('[rev_slider alias="home-slider"]') ?>
   <ul class="social-icons style-2 v-type">
     <li><a href="https://www.facebook.com/aalstem" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
@@ -9,7 +10,63 @@
     <li><a href="https://www.linkedin.com/company/american-association-of-latinos-in-stem" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
   </ul>
 </section>
-<section class="widget-holder py-5 bg-light">
+
+<section id="about" class="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 my-auto">
+        <h1>Welcome</h1>
+        <p>AALSTEM consists of a group of established technical professionals that is focused on encouraging and supporting the Latino youth in pursuing careers in Science, Technology, Engineering, and Math.</p>
+        <p>We are also committed to further developing Latino professionals in an effort to improve their careers and help realize their full potential. We strive to achieve our mission through leadership, mentorship, education, and by providing professional development activities and networking events.</p>
+      </div>
+      <div class="d-none d-md-block col-md-6">
+        <img class="img-fluid p-5" src="https://mywebsitetester.com/wp-content/uploads/2018/03/Group-5.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="aalstem-actions" class="">
+  <div class="container extra-size">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="action-item volunteer">
+          <a href="#">
+            <i class="fas fa-bullhorn"></i>
+            <h5><?php _e( 'Get Involved' ) ?></h5>
+            <p><?php _e( 'Become a volunteer' ) ?></p>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="action-item donations">
+          <h5><?php _e( 'Donate to AALSTEM' ) ?></h5>
+          <?php echo do_shortcode('[give_form id="160" display_style="modal" show_title="false"]') ?>
+          <div id="chose-donate" class="chose-donate d-none">
+            <button class="chose-item">$5</button>
+            <button class="chose-item">$10</button>
+            <button class="chose-item">$25</button>
+            <button class="chose-item">$100</button>
+            <button class="chose-item active">Other</button>
+            <a href="#" class="btn btn-primary">Donate</a>
+          </div>
+          <?php //echo do_shortcode( "[totaldonations form_id='61']" ) ?>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="action-item sponsorship">
+          <a href="#">
+            <i class="far fa-handshake"></i>
+            <h5><?php _e( 'Sponsorship' ) ?></h5>
+            <p><?php _e( 'Be part of AALSTEM' ) ?></p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="recent-updates" class="widget-holder home-section bg-light">
   <div class="block-header text-center">
     <h1><?php _e( 'News &amp; Updates' ) ?></h1>
   </div>
@@ -17,6 +74,7 @@
     <div class="row">
       <div class="col-lg-6 p-0 m-0">
         <?php
+          // echo do_shortcode('[rev_slider alias="news-feed"]');
           $posts = new WP_Query( array('post_type' => 'post', 'showposts' => 1) );
           while( $posts->have_posts() ) : $posts->the_post();
         ?>
@@ -40,8 +98,11 @@
           <header class="mb-3">
             <i class="fab fa-twitter fa-2x"></i>
           </header>
-          <div class="more-link mt-3">
-            <a class="text-white" href="#"><?php _e( 'Follow Us on Twitter' ) ?></a>
+          <article class="">
+            <?php get_template_part( 'template-parts/latest', 'tweet' ); ?>
+          </article>
+          <div class="info-link mt-3">
+            <a class="text-white" href="https://twitter.com/aalstem" target="_blank"><?php _e( 'Follow Us on Twitter' ) ?></a>
           </div>
         </div>
       </div>
@@ -50,93 +111,35 @@
           <header class="mb-3">
             <i class="fab fa-facebook-f fa-2x"></i>
           </header>
-          <div class="more-link mt-3">
-            <a class="text-white" href="#"><?php _e( 'Follow Us on Facebook' ) ?></a>
+          <div class="info-link mt-3">
+            <a class="text-white" href="https://www.facebook.com/aalstem" target="_blank"><?php _e( 'Follow Us on Facebook' ) ?></a>
           </div>
         </div>
       </div>
       <div class="col-lg-4 p-0 m-0">
-        <div style="background: #0e1e40;" class="p-4 text-white h-100">
+        <div class="widget-instagram text-white h-100">
           <header class="mb-3">
             <i class="fab fa-instagram fa-2x"></i>
           </header>
-          <div class="more-link mt-3">
-            <a class="text-white" href="#"><?php _e( 'Follow Us on Instagram' ) ?></a>
+          <article class="">
+            <?php echo do_shortcode('[rev_slider alias="ig-feed"]') ?>
+          </article>
+          <div class="info-link">
+            <a class="text-white" href="https://www.instagram.com/aalstem/" target="_blank"><?php _e( 'Follow Us on Instagram' ) ?></a>
           </div>
         </div>
       </div>
       <div class="col-lg-4 p-0 m-0">
-        <div id="upcoming-events" style="background: #fff;" class="p-4 text-black h-100">
-          <header class="mb-4">
-            <h4>Upcoming Events</h4>
-          </header>
-          <?php
-            $events = new WP_Query( array( 'post_type' => 'tribe_events', 'showposts' => 2 ) );
-            while( $events->have_posts() ) : $events->the_post();
-          ?>
-          <div class="row mb-4">
-            <div class="col-3">
-              <div class="event-date">
-                <div class="event-month"><?php echo date('M', convert_datetime( get_post_meta(get_the_ID(), '_EventStartDate', true) ) ); ?></div>
-                <div class="event-day"><?php echo date('d', convert_datetime( get_post_meta(get_the_ID(), '_EventStartDate', true) ) ); ?></div>
-              </div>
-            </div>
-            <div class="col-9 p-0 m-0">
-              <a class="event-info" href="<?php the_permalink() ?>">
-                <h6><?php the_title() ?></h6>
-                <div class="event-info-item">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <?php echo get_post_meta( get_post_meta( get_the_ID(), '_EventVenueID', true), '_VenueAddress', true ) ?>,
-                  <?php echo get_post_meta( get_post_meta( get_the_ID(), '_EventVenueID', true), '_VenueCity', true ) ?>,
-                  <?php echo get_post_meta( get_post_meta( get_the_ID(), '_EventVenueID', true), '_VenueState', true ) ?>
-                  <?php echo get_post_meta( get_post_meta( get_the_ID(), '_EventVenueID', true), '_VenueZip', true ) ?>
-                </div>
-                <div class="event-info-item">
-                  <i class="far fa-clock"></i>
-                  <?php echo date( "h:m a", convert_datetime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ) ?>
-                  -
-                  <?php echo date( "h:m a", convert_datetime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ) ?>
-                </div>
-              </a>
-            </div>
-          </div>
-          <?php endwhile; wp_reset_postdata() ?>
-          <div class="row">
-            <div class="col-3">
-              <div class="event-date w-100">
-                <div class="event-month">Aug</div>
-                <div class="event-day">19</div>
-              </div>
-            </div>
-            <div class="col-9 p-0 m-0">
-              <h6><a href="#">TECH FAIR IN THE HEIGHTS</a></h6>
-              <div class="event-info-item"><i class="fas fa-map-marker-alt"></i> 650 Academy St, New York</div>
-              <div class="event-info-item"><i class="far fa-clock"></i> 12:00 pm – 5:00 pm</div>
-            </div>
-          </div>
-          <div class="more-link mt-5">
-            <a href="#"><?php _e( 'More Events' ) ?></a>
-          </div>
-        </div>
+        <?php get_template_part( 'template-parts/upcoming', 'events' ); ?>
       </div>
       <div class="col-lg-4 p-0 m-0">
-        <div style="background: #ce2028;" class="p-4 text-white h-100">
-          <header class="mb-3">
-            <i class="fab fa-youtube fa-2x"></i>
-          </header>
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe src="https://www.youtube.com/embed/KP36cvEQ6uY?rel=0&showinfo=0&autohide=2&controls" frameborder="0" allowfullscreen></iframe>
-          </div>
-          <div class="more-link mt-3">
-            <a class="text-white" href="#"><?php _e( 'View All Videos' ) ?></a>
-          </div>
-        </div>
+        <?php get_template_part( 'template-parts/featured', 'video' ); ?>
       </div>
     </div>
   </div>
 </section>
 
-<section class="px-1 py-5">
+<section id="testimonials" class="home-section">
   <div class="block-header text-center">
     <h1><?php _e( 'Testimonials' ) ?></h1>
   </div>
@@ -186,8 +189,11 @@
     </div>
   </div>
 </section>
-
-<section id="partners-sponsors" class="bg-light p-5 text-center">
+<section>
+  <pre class="">
+  </pre>
+</section>
+<section id="partners-sponsors" class="bg-light home-section text-center">
   <div class="block-header mb-5">
     <h1><?php _e( 'Partners &amp; Sponsors' ) ?></h1>
   </div>
@@ -199,4 +205,5 @@
     <img height="70" class="img-flsuid" src="https://mywebsitetester.com/wp-content/uploads/2018/02/highstep.png" alt="">
   </div>
 </section>
+
 <?php get_footer() ?>

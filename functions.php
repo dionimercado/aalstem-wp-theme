@@ -35,15 +35,17 @@ add_action( 'after_setup_theme', 'custom_theme_features' );
 
 // Register Custom Navigation Walker
 require_once get_stylesheet_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+require_once get_stylesheet_directory() . '/inc/twitter-feed.php';
 
 // Testimonials Post Type
-include_once get_stylesheet_directory() . '/inc/posttype-testimonial.php';
+include_once get_stylesheet_directory() . '/inc/posttypes.php';
 
 
 function add_theme_scripts() {
   wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.0.6/css/all.css', array(), '5.0.6', 'all' );
   wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', array(), '4.0.0', 'all' );
   wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,900', array(), null, 'all' );
+	wp_enqueue_style( 'social-stream', get_stylesheet_directory_uri() . '/assets/css/dcsns_wall.css', array(), uniqid() );
   // wp_enqueue_style( 'style', get_stylesheet_uri() );
 
 	wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/assets/css/owl.carousel.min.css', array(), '2.2.1', 'all' );
@@ -53,6 +55,8 @@ function add_theme_scripts() {
 
   wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array( 'jquery' ), '1.12.9', true );
   wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', array( 'popper' ), '4.0.0', true );
+	wp_enqueue_script( 'social-stream-wall', get_stylesheet_directory_uri() . '/assets/js/jquery.social.stream.wall.1.8.js', array('jquery'), '1.8', true );
+  wp_enqueue_script( 'social-stream', get_stylesheet_directory_uri() . '/assets/js/jquery.social.stream.1.6.2.min.js', array('jquery'), '1.6.2', true );
 	wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array ( 'jquery' ), '2.2.1', true);
   wp_enqueue_script( 'aalstem', get_template_directory_uri() . '/assets/js/aalstem.js', array ( 'jquery' ), uniqid(), true);
 
