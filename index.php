@@ -77,18 +77,20 @@
             </figure>
           </div>
           <div class="entry-body">
-            <h6>Latest News</h6>
+            <h6><?php _e( 'Latest News' ) ?></h6>
             <h4 class="entry-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
             <div class="entry-meta">
-              <time class="post-date" datetime="2018-03-25"><?php the_time('F j, Y') ?></time>
+              <time class="post-date"><?php the_time('F j, Y') ?></time>
             </div>
-            <a href="<?php echo get_category_link( '1' ) ?>" class="info-link">More News</a>
+            <div class="info-link">
+              <a href="<?php echo get_category_link( '1' ) ?>" class="text-white"><?php _e( 'More News' ) ?></a>
+            </div>
           </div>
         </article>
         <?php endwhile; wp_reset_postdata(); ?>
       </div>
       <div class="col-lg-3 p-0 m-0">
-        <div style="background: #14468c;" class="p-4 text-white h-100">
+        <div style="background: #14468c;" class="widget-twitter text-white h-100">
           <header class="mb-3">
             <i class="fab fa-twitter fa-2x"></i>
           </header>
@@ -101,10 +103,13 @@
         </div>
       </div>
       <div class="col-lg-3 p-0 m-0">
-        <div style="background: #0d2f5d;" class="p-4 text-white h-100">
+        <div style="background: #0d2f5d;" class="widget-facebook text-white h-100">
           <header class="mb-3">
             <i class="fab fa-facebook-f fa-2x"></i>
           </header>
+          <article class="">
+            <?php get_template_part( 'template-parts/facebook', 'feed' ); ?>
+          </article>
           <div class="info-link mt-3">
             <a class="text-white" href="https://www.facebook.com/aalstem" target="_blank"><?php _e( 'Follow Us on Facebook' ) ?></a>
           </div>
@@ -116,7 +121,7 @@
             <i class="fab fa-instagram fa-2x"></i>
           </header>
           <article class="">
-            <?php //echo do_shortcode('[rev_slider alias="ig-feed"]') ?>
+            <?php echo do_shortcode('[rev_slider alias="ig-feed"]') ?>
           </article>
           <div class="info-link">
             <a class="text-white" href="https://www.instagram.com/aalstem/" target="_blank"><?php _e( 'Follow Us on Instagram' ) ?></a>

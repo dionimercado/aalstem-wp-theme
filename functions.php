@@ -16,7 +16,7 @@ function custom_theme_features()  {
 	add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' ) );
 
 	// Add theme support for Featured Images
-	add_theme_support( 'post-thumbnails', array( '' ) );
+	add_theme_support( 'post-thumbnails');
 
 	// Add theme support for HTML5 Semantic Markup
 	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
@@ -48,7 +48,6 @@ add_action( 'after_setup_theme', 'custom_theme_features' );
 
 // Register Custom Navigation Walker
 require_once get_stylesheet_directory() . '/inc/class-wp-bootstrap-navwalker.php';
-require_once get_stylesheet_directory() . '/inc/twitter-feed.php';
 
 // Testimonials Post Type
 include_once get_stylesheet_directory() . '/inc/posttypes.php';
@@ -90,5 +89,36 @@ function convert_datetime($str) {
 	$timestamp = mktime($hour, $minute, $second, $month, $day, $year);
 
 	return $timestamp;
+}
+
+// to get 'time ago' text
+function time_elapsed_string($datetime, $full = false) {
+
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
 ?>
