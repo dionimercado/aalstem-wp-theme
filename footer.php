@@ -1,15 +1,15 @@
 <footer id="footer" class="bg-light">
-  <div class="ft-top">
+  <div class="ft-top bg-secondary">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-lg-8">
+        <div class="col-lg-8">
           <!-- Begin MailChimp Signup Form -->
           <div class="newsletter-form py-4 p-lg-5 bg-col-1">
             <div class="row">
-              <div class="col-lg-4 d-flex align-items-center justify-content-center">
-                <h5 class="f-20 mb-3 mb-lg-0 text-white text-center text-uppercase">Join our team</h5>
+              <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <h5 class="f-20 mb-3 mb-md-0 text-white text-center text-uppercase">Join our team</h5>
               </div>
-              <div class="col-lg-8">
+              <div class="col-md-8">
                 <form action="https://dionimercado.us14.list-manage.com/subscribe/post?u=c84d33d7d0a554f6988195f5b&amp;id=443f1cf726" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="bg-white rounded form-inline validate m-0 p-0" target="_blank" novalidate="">
                   <div class="input-group d-flex flex-row">
                     <input type="text" name="EMAIL" class="form-control border-0 required email w-50" id="mce-EMAIL" placeholder="Email address">
@@ -29,7 +29,7 @@
           </div>
           <!--End mc_embed_signup-->
         </div>
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 d-none d-lg-block">
           <div class="p-0 d-flex align-items-center justify-content-center h-100">
             <a href="/" class="btn-donate p-4	d-flex justify-content-center h-100 w-100 f-20 align-items-center text-white text-uppercase">
               <span><?php _e( 'Donate Today!' ) ?></span>
@@ -39,22 +39,22 @@
       </div>
     </div>
   </div>
-  <div class="ft-bottom bg-light pt-5">
+  <div class="ft-bottom bg-primary pt-5">
     <div class="container mt-md-5">
       <div class="row">
-        <div class="col-md-4 col-lg-4 text-center text-md-left">
-          <p>Changing lives, aligning destinies<br /> and uplifting communities.</p>
+        <div class="col-md-6 col-lg-4 text-center text-md-left">
+          <p class="d-none d-md-block">Changing lives, aligning destinies<br /> and uplifting communities.</p>
           <p>
             P.O. Box 671088<br />
             Flushing, NY 11367
           </p>
           <p><a href="mailto:connect@aalstem.org">connect@aalstem.org</a></p>
         </div>
-        <div class="col-12 col-lg-3 d-none d-md-block">
+        <div class="col-12 col-lg-3 d-none d-lg-block">
           <h4 class="footer-title mb-4">Quick Links</h4>
           <?php wp_nav_menu( array( 'theme_location' => 'footer-links', 'container' => '', 'menu_id' => '', 'menu_class' => '' ) ); ?>
         </div>
-        <div class="col-md-4 col-lg-5 text-center text-md-left">
+        <div class="col-md-6 col-lg-5 text-center text-md-left">
           <div class="widget mb-4">
             <h4 class="widget-title mb-4 d-none d-md-block">Connect With Us</h4>
             <ul class="social-icons list-inline">
@@ -71,8 +71,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 text-center mt-5">
-          <p class="text-center pt-4 border-top">&copy; <?php echo date( 'Y' ) ?> <strong><?php bloginfo( 'name' ) ?></strong> <span class="d-none d-sm-inline-block">All rights reserved.</span>	</p>
+        <div class="col-12 text-center mt-3 mt-md-5">
+          <p class="text-center pt-3 pt-md-4 border-top">&copy; <?php echo date( 'Y' ) ?> <strong><?php bloginfo( 'name' ) ?></strong> <span class="d-none d-sm-inline-block">All rights reserved.</span>	</p>
         </div>
       </div>
     </div>

@@ -11,11 +11,11 @@
   </ul>
 </section>
 
-<section id="about" class="home-section">
+<section id="about" class="home-section text-center text-md-left">
   <div class="container">
     <div class="row">
       <div class="col-md-6 my-auto">
-        <h1>Welcome</h1>
+        <h1>Welcome to <strong>AALSTEM</strong></h1>
         <p>AALSTEM consists of a group of established technical professionals that is focused on encouraging and supporting the Latino youth in pursuing careers in Science, Technology, Engineering, and Math.</p>
         <p>We are also committed to further developing Latino professionals in an effort to improve their careers and help realize their full potential. We strive to achieve our mission through leadership, mentorship, education, and by providing professional development activities and networking events.</p>
       </div>
@@ -42,15 +42,6 @@
         <div class="action-item donations">
           <h5><?php _e( 'Donate to AALSTEM' ) ?></h5>
           <?php echo do_shortcode('[give_form id="160" display_style="modal" show_title="false"]') ?>
-          <div id="chose-donate" class="chose-donate d-none">
-            <button class="chose-item">$5</button>
-            <button class="chose-item">$10</button>
-            <button class="chose-item">$25</button>
-            <button class="chose-item">$100</button>
-            <button class="chose-item active">Other</button>
-            <a href="#" class="btn btn-primary">Donate</a>
-          </div>
-          <?php //echo do_shortcode( "[totaldonations form_id='61']" ) ?>
         </div>
       </div>
       <div class="col-md-3">
@@ -75,20 +66,23 @@
       <div class="col-lg-6 p-0 m-0">
         <?php
           // echo do_shortcode('[rev_slider alias="news-feed"]');
-          $posts = new WP_Query( array('post_type' => 'post', 'showposts' => 1) );
+          $posts = new WP_Query( array('post_type' => 'post', 'showposts' => 1, 'offset' => 1) );
           while( $posts->have_posts() ) : $posts->the_post();
+            $post_thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
         ?>
         <article class="entry">
           <div class="entry-attachment">
-            <figure class="thumbnail-attachment"><img src="https://mywebsitetester.com/wp-content/uploads/2018/02/news-1.jpg" alt="" width="570" height="371"></figure>
+            <figure class="thumbnail-attachment">
+              <img class="img-fluid" src="<?php echo $post_thumb[0]; ?>&amp;resize=750,400" alt="<?php the_title(); ?>" />
+            </figure>
           </div>
           <div class="entry-body">
             <h6>Latest News</h6>
             <h4 class="entry-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
             <div class="entry-meta">
-              <time class="entry-date" datetime="2018-03-25">March 25, 2018</time>
+              <time class="post-date" datetime="2018-03-25"><?php the_time('F j, Y') ?></time>
             </div>
-            <a href="#" class="info-btn">More News</a>
+            <a href="<?php echo get_category_link( '1' ) ?>" class="info-link">More News</a>
           </div>
         </article>
         <?php endwhile; wp_reset_postdata(); ?>
@@ -122,7 +116,7 @@
             <i class="fab fa-instagram fa-2x"></i>
           </header>
           <article class="">
-            <?php echo do_shortcode('[rev_slider alias="ig-feed"]') ?>
+            <?php //echo do_shortcode('[rev_slider alias="ig-feed"]') ?>
           </article>
           <div class="info-link">
             <a class="text-white" href="https://www.instagram.com/aalstem/" target="_blank"><?php _e( 'Follow Us on Instagram' ) ?></a>
@@ -189,10 +183,7 @@
     </div>
   </div>
 </section>
-<section>
-  <pre class="">
-  </pre>
-</section>
+
 <section id="partners-sponsors" class="bg-light home-section text-center">
   <div class="block-header mb-5">
     <h1><?php _e( 'Partners &amp; Sponsors' ) ?></h1>

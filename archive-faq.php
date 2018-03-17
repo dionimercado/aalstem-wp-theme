@@ -17,7 +17,7 @@
           <div class="card">
             <div class="card-header" id="headingOne">
               <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php echo get_the_ID() ?>" aria-expanded="true" aria-controls="collapse<?php echo get_the_ID() ?>">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php echo get_the_ID() ?>" aria-expanded="false" aria-controls="collapse<?php echo get_the_ID() ?>">
                   <?php the_title() ?>
                 </button>
               </h5>

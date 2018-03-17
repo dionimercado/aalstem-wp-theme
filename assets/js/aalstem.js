@@ -1,9 +1,11 @@
 jQuery( function($) {
 
+    // Offcanvas Menu
     jQuery('[data-toggle="offcanvas"]').on('click', function () {
       jQuery('.offcanvas-collapse').toggleClass('open')
     });
 
+    // Testimonials Carousel
     jQuery('.owl-testimonials').owlCarousel({
       loop:true,
       margin:10,
@@ -18,6 +20,8 @@ jQuery( function($) {
       transitionStyle: "backSlide"
     });
 
+
+    // Social Media Stream
     jQuery('#social-stream').dcSocialStream({
       feeds: {
         twitter: {

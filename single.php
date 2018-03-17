@@ -14,8 +14,8 @@
     <div class="row">
       <div class="col-lg-8 text-justify">
         <?php while( have_posts() ) : the_post() ?>
-          <article class="">
-            <div class="">
+          <article class="single-post">
+            <div>
               <?php the_content() ?>
             </div>
           </article>

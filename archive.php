@@ -1,7 +1,7 @@
 <?php get_header() ?>
 
 <main class="mb-5 pb-5">
-  <div class="breadcrumbs-wrap py-5 mb-5">
+  <div class="breadcrumbs-wrap py-4 py-md-5 mb-4 mb-md-5 text-center text-md-left">
     <div class="container">
       <h1 class="page-title">News &amp; Media</h1>
       <ul class="breadcrumbs list-inline">
@@ -23,13 +23,13 @@
             <a href="<?php the_permalink() ?>"><img class="img-fluid" src="<?php echo $post_thumb[0]; ?>&amp;resize=750,450" alt="<?php the_title(); ?>" /></a>
           </div>
           <div class="row">
-            <div class="col-2">
+            <div class="col-md-2 d-none d-md-block">
               <div class="entry-date">
                 <div class="entry-month"><?php the_time('M') ?></div>
                 <div class="entry-day"><?php the_time('d') ?></div>
               </div>
             </div>
-            <div class="col-10">
+            <div class="col-md-10">
               <div class="post-info">
                 <h4 class="entry-link"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
                 <div class="entry-meta">

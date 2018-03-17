@@ -25,10 +25,23 @@ function custom_theme_features()  {
 	add_theme_support( 'title-tag' );
 
   // Add support for two custom navigation menus.
-    register_nav_menus( array(
-        'primary'   => __( 'Primary Menu', 'aalstem' ),
-        'footer-links' => __('Footer Links', 'aalstem' )
-    ) );
+  register_nav_menus( array(
+      'primary'   => __( 'Primary Menu', 'aalstem' ),
+      'footer-links' => __('Footer Links', 'aalstem' )
+  ) );
+
+	// Register Sidebars
+	function aalstem_sidebars() {
+
+		$args = array(
+			'id'            => 'sidebbar',
+			'class'         => 'sidebar',
+			'name'          => __( 'Sidebar', 'aalstem' ),
+		);
+		register_sidebar( $args );
+
+	}
+	add_action( 'widgets_init', 'aalstem_sidebars' );
 }
 add_action( 'after_setup_theme', 'custom_theme_features' );
 
