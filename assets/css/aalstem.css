@@ -6,6 +6,7 @@ body {
 body {
   color: #333;
   position: relative;
+      font-family: "Open Sans", sans-serif;
 }
 
 body:not(.home) {
@@ -60,6 +61,10 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
   text-overflow: ellipsis;
 }
 
+.block-header h1 {
+  color: #1f325f;
+}
+
 .block-header::after {
   content: "";
   display: block;
@@ -67,6 +72,17 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
   height: 3px;
   width: 60px;
   background-color: #ce2128;
+}
+.block-header span {
+  background-color: #ce2228;
+  color: #fff;
+  border-radius: 50px;
+  height: 44px;
+  width: 44px;
+  display: inline-block;
+  line-height: 44px;
+  font-size: 30px;
+  font-weight: 600;
 }
 
 
@@ -210,9 +226,15 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 }
 #footer {
   color: #e7ecf3;
+  position: relative;
+  overflow: hidden;
 }
 #footer a {
   color: #fff;
+}
+
+#footer .ft-top {
+  background-color: #1e3160;
 }
 
 #footer .btn-donate {
@@ -774,13 +796,6 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
   margin: 5px;
 }
 
-#footer {
-  overflow: hidden;
-}
-
-#footer .ft-top {
-  background-color: #1e3160;
-}
 
 .newsletter-form .form-control {
   background: transparent;
@@ -1171,6 +1186,195 @@ margin: -5px 0;
 }
 
 
+/* JOB LISTINGS */
+.jobs-listings {
+  overflow: hidden;
+}
+.jobs-listings .items-wrapper {
+  position: relative;
+}
+.jobs-listings .items-wrapper::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -120px;
+  z-index: 0;
+  background: linear-gradient(to right,#e7ecf3,transparent);
+}
+.job-item {
+  border-left: 4px solid #14468c;
+  box-shadow: 2px 2px 5px rgba(0,0,0,.1);
+}
+.job-item a:hover {
+  color: #000;
+}
+.job-item h2 {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+.job-item a:hover h2 {
+  color: #ce2128;
+}
+.job-item .price {
+  font-size: 16px;
+  line-height: 26px;
+}
+.job-item .time-ago {
+  background-color: #eceefd;
+  color: #6072f2;
+  font-weight: 600;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 30px;
+}
+.job-item span {
+  font-size: 13px;
+  line-height: 26px;
+  font-weight: 600;
+}
+.job-item a img {
+  transition: all .3s ease;
+}
+.job-item a:hover img {
+  transform: scale(1.2)
+}
+
+.job-item .skills-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.job-item .skills-list li {
+  display: inline-block;
+  border: 1px solid #ddd;
+  text-transform: uppercase;
+  font-size: 9px;
+  padding: 2px 7px;
+  border-radius: 30px;
+}
+
+/* EVENTS PAGE */
+.featured-event {
+  background-color: #ce2128;
+  color: #fff;
+  position: relative;
+}
+.featured-event::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #1f325f;
+  background-image: url('https://mywebsitetester.com/wp-content/uploads/2018/03/flyer-featured-2.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.featured-event .sub {
+  background-color: #fff;
+  color: #ce2128;
+  position: relative;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.1;
+  display: inline-block;
+  padding: 7px 12px;
+  text-transform: uppercase;
+}
+.featured-event .sub::before {
+  content: '';
+  width: 0;
+  height: 0;
+  top: 100%;
+  left: 5px;
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-width: 0 0 8px 8px;
+  border-color: transparent;
+  border-left-color: #fff;
+}
+.featured-event .btn-primary:hover {
+  background: #eee;
+  color: #1f325f;
+  border-color: transparent;
+  -webkit-box-shadow: 0px 12px 25px 0px rgba(187, 187, 187, 0.43);
+  -moz-box-shadow: 0px 12px 25px 0px rgba(187, 187, 187, 0.43);
+  box-shadow: 0px 12px 25px 0px rgba(187, 187, 187, 0.43);
+}
+.aalstem-event-item {
+  box-shadow: 0px 2px 6px rgba(0,0,0,.1);
+}
+.aalstem-event-item h2 {
+  font-size: 22px;
+}
+
+.aalstem-event-item .past-flyer {
+  background-color: #1f325f;
+  background-position: center center;
+  background-size: cover;
+  transition-duration: 1s;
+  height: 250px;
+  width: 100%;
+  display: block;
+}
+.aalstem-event-item .past-flyer:hover {
+  background-position: center bottom;
+}
+
+.countdown {
+  display: block;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-align: right;
+  font-weight: 200;
+  font-size: 14px;
+  width: 100%;
+}
+.countdown>div{
+  display: flex;
+  flex-direction: row;
+}
+.countdown .time-box {
+  display: inline-block;
+  background-color: rgba(0,0,0,.1);
+  text-align: center;
+  margin: 0 1px;
+  width: 100%;
+}
+.countdown .time-box .time {
+  width: 100%;
+  display: block;
+  padding: 12px;
+  font-size: 27px;
+}
+.countdown .time-box .label {
+  width: 100%;
+  display: block;
+  background-color: #fff;
+  color: #000;
+  font-size: 12px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* SINGLE EVENT */
+.tribe-events-event-image {
+  margin-bottom: 0 !important;
+}
+.tribe-events-event-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* FORM ELEMENTS */
 input[type=date],
 input[type=email],
@@ -1273,12 +1477,24 @@ label {
 } */
 
 @media screen and (max-width: 1200px) {
+  img.alignright,
+  img.alignleft,
+  img.aligncenter,
+  a img.alignright,
+  a img.alignleft,
+  a img.aligncenter {
+    display: block;
+    margin: 1rem auto;
+    width: 100%;
+    height: auto;
+  }
   #aalstem-actions #give-donation-level-button-wrap {
     width: 76%;
   }
 
 }
 @media screen and (max-width: 992px) {
+
   .testimonial.testimonial-single .testimonial-holder {
     width: 90%;
   }
@@ -1299,6 +1515,12 @@ label {
     font-size: 16px;
     margin-bottom: 10px !important;
   }
+  .featured-event>div {
+    max-width: 100%;
+  }
+  .featured-event::after {
+    width: 40%;
+  }
 
 }
 
@@ -1309,6 +1531,8 @@ label {
   h1 {
     font-size: 1.8rem;
   }
+
+
   #header .give-display-button {
     margin-left: 75px;
     margin-right: 0px;
@@ -1419,6 +1643,14 @@ label {
   }
   .card-header .btn {
     padding: 7px 20px;
+  }
+
+  .featured-event::after {
+    display: none;
+  }
+
+  .aalstem-event-map>div {
+    height: 180px !important;
   }
 
   input[type=date],

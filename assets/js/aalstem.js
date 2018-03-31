@@ -65,4 +65,24 @@ jQuery( function($) {
       imagePath: 'images/dcsns-dark/'
     });
 
+    $countdown = jQuery('[data-countdown]');
+    $countdown.countdown($countdown.data('countdown'))
+    .on('update.countdown', function(event) {
+      var format = ''
+        + '<div class="time-box"><span class="time">%H</span><span class="label">hours</span></div>'
+        + '<div class="time-box"><span class="time">%M</span><span class="label">min</span></div>'
+        + '<div class="time-box"><span class="time">%S</span><span class="label">sec</span></div>';
+      if(event.offset.totalDays > 0) {
+        format = '<div class="time-box"><span class="time">%-d</span><span class="label">day</span></div>' + format;
+      }
+      if(event.offset.weeks > 0) {
+        format = '<div class="time-box"><span class="time">%-w</span><span class="label">week</span></div>' + format;
+      }
+      jQuery(this).html(event.strftime(format));
+    })
+    .on('finish.countdown', function(event) {
+      jQuery(this).html('<h4 class="text-center w-100 mb-0">This event has passed.</h4>')
+        .parent().addClass('disabled');
+
+    });
 });

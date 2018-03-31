@@ -49,14 +49,17 @@ add_action( 'after_setup_theme', 'custom_theme_features' );
 // Register Custom Navigation Walker
 require_once get_stylesheet_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 
-// Testimonials Post Type
+// Post Types and Taxonomies
 include_once get_stylesheet_directory() . '/inc/posttypes.php';
+include_once get_stylesheet_directory() . '/inc/taxonomies.php';
 
+// Admin Features
+include_once get_stylesheet_directory() . '/inc/admin/reports.php';
 
 function add_theme_scripts() {
   wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.0.6/css/all.css', array(), '5.0.6', 'all' );
   wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', array(), '4.0.0', 'all' );
-  wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,900', array(), null, 'all' );
+  wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,900|Open+Sans:300,400,700', array(), null, 'all' );
 	wp_enqueue_style( 'social-stream', get_stylesheet_directory_uri() . '/assets/css/dcsns_wall.css', array(), uniqid() );
   // wp_enqueue_style( 'style', get_stylesheet_uri() );
 
@@ -70,6 +73,7 @@ function add_theme_scripts() {
 	wp_enqueue_script( 'social-stream-wall', get_stylesheet_directory_uri() . '/assets/js/jquery.social.stream.wall.1.8.js', array('jquery'), '1.8', true );
   wp_enqueue_script( 'social-stream', get_stylesheet_directory_uri() . '/assets/js/jquery.social.stream.1.6.2.min.js', array('jquery'), '1.6.2', true );
 	wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array ( 'jquery' ), '2.2.1', true);
+  wp_enqueue_script( 'jquery.countdown', get_template_directory_uri() . '/assets/js/jquery.countdown.min.js', array ( 'jquery' ), '2.2.0', true);
   wp_enqueue_script( 'aalstem', get_template_directory_uri() . '/assets/js/aalstem.js', array ( 'jquery' ), uniqid(), true);
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -121,4 +125,22 @@ function time_elapsed_string($datetime, $full = false) {
     if (!$full) $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
-?>
+
+
+
+/**
+ * Use * for origin
+ */
+add_action( 'rest_api_init', function() {
+
+	remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
+	add_filter( 'rest_pre_serve_request', function( $value ) {
+		header( 'Access-Control-Allow-Origin: *' );
+		// header( 'Access-Control-Allow-Origin: http://localhost:8080' );
+		header( 'Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE' );
+		header( 'Access-Control-Allow-Credentials: true' );
+
+		return $value;
+
+	});
+}, 15 );
