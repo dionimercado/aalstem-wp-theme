@@ -5,6 +5,15 @@ jQuery( function($) {
       jQuery('.offcanvas-collapse').toggleClass('open')
     });
 
+    // Smooth scrolling
+  	jQuery('.smooth-scrolling').bind('click', function(event) {
+  		var $anchor = jQuery(this);
+  		jQuery('html, body').stop().animate({
+  				scrollTop: (jQuery($anchor.attr('href')).offset().top - 0)
+  		}, 800, 'easeInOutExpo');
+  		event.preventDefault();
+  	});
+
     // Testimonials Carousel
     jQuery('.owl-testimonials').owlCarousel({
       loop:true,

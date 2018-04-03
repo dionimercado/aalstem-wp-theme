@@ -15,7 +15,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 my-auto">
-        <h1>Welcome to <strong>AALSTEM</strong></h1>
+        <h1>Welcome to <strong class="text-secondary">AALSTEM</strong></h1>
         <p>AALSTEM consists of a group of established technical professionals that is focused on encouraging and supporting the Latino youth in pursuing careers in Science, Technology, Engineering, and Math.</p>
         <p>We are also committed to further developing Latino professionals in an effort to improve their careers and help realize their full potential. We strive to achieve our mission through leadership, mentorship, education, and by providing professional development activities and networking events.</p>
       </div>
@@ -191,7 +191,7 @@
 
 <section id="partners-sponsors" class="bg-light home-section text-center">
   <div class="block-header mb-5">
-    <h1><?php _e( 'Partners &amp; Sponsors' ) ?></h1>
+    <h1 class="pl-3"><?php _e( 'Partners <span>&amp;</span> Sponsors' ) ?></h1>
   </div>
   <div class="sponsors-logos">
     <img height="70" class="img-flusid" src="https://mywebsitetester.com/wp-content/uploads/2018/02/nylife.png" alt="">

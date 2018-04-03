@@ -54,7 +54,7 @@
           <h4 class="footer-title mb-4">Quick Links</h4>
           <?php wp_nav_menu( array( 'theme_location' => 'footer-links', 'container' => '', 'menu_id' => '', 'menu_class' => '' ) ); ?>
         </div>
-        <div class="col-md-6 col-lg-5 text-center text-md-left">
+        <div class="col-md-6 col-lg-5 text-center text-md-right">
           <div class="widget mb-4">
             <h4 class="widget-title mb-4 d-none d-md-block">Connect With Us</h4>
             <ul class="social-icons list-inline">

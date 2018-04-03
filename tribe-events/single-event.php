@@ -19,6 +19,8 @@ $events_label_singular = tribe_get_event_label_singular();
 $events_label_plural   = tribe_get_event_label_plural();
 
 $event_id = get_the_ID();
+$event_flyer = wp_get_attachment_image_src( get_post_thumbnail_id($event_id), 'full' );
+
 
 ?>
 
@@ -32,11 +34,14 @@ $event_id = get_the_ID();
     <div class="row">
       <div class="col-md-4">
         <!-- Event featured image, but exclude link -->
-        <?php echo tribe_event_featured_image( $event_id, 'full', false ); ?>
+        <a href="<?php echo $event_flyer[0] ?>" data-fancybox="images"><?php echo tribe_event_featured_image( $event_id, 'full', false ); ?></a>
 
         <!-- Countdown -->
         <div class="countdown p-3 mb-4 bg-secondary">
           <div data-countdown="<?php echo get_post_meta( $event_id, '_EventStartDate', true ) ?>"></div>
+        </div>
+        <div class="mb-4">
+          <a href="#tickets" class="btn btn-primary btn-block smooth-scrolling"><?php _e( 'Get Tickets' ) ?></a>
         </div>
       </div>
       <div class="col-md-8">
@@ -58,10 +63,11 @@ $event_id = get_the_ID();
   			<?php endif; ?>
 
         <!-- Event meta -->
-        <?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
-        <?php // tribe_get_template_part( 'modules/meta' ); ?>
-        <?php do_action( 'tribe_events_single_event_after_the_meta' ) ?>
-
+        <div id="tickets">
+          <?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
+          <?php // tribe_get_template_part( 'modules/meta' ); ?>
+          <?php do_action( 'tribe_events_single_event_after_the_meta' ) ?>
+        </div>
       </div>
     </div>
     <?php endwhile; ?>

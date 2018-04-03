@@ -33,9 +33,17 @@
               <div class="post-info">
                 <h4 class="entry-link"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
                 <div class="entry-meta">
-                  <a href="#" class="entry-comments-link">0 Comments</a>
-                  <span class="entry-byline">by<a href="#"> Admin</a></span>
-                  <span class="entry-cat">in<a href="#"> News</a></span>
+                  <?php
+                  // If comments are open or we have at least one comment, load up the comment template.
+                  if ( comments_open() || get_comments_number() ) :
+                      comments_template();
+                  endif;
+
+                  ?>
+
+                  <a href="<?php the_permalink() ?>#comments" class="entry-comments-link"><?php comments_number( '0 comments', '1 comment', '% comments' ); ?></a>
+                  <span class="entry-byline">by <?php the_author_posts_link(); ?></span>
+                  <span class="entry-cat">in <a href="#"> News</a></span>
                 </div>
                 <?php the_excerpt() ?>
                 <a href="<?php the_permalink() ?>" class="info-btn"><?php _e( 'Read More' ) ?></a>

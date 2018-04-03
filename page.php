@@ -1,6 +1,6 @@
 <?php get_header() ?>
 <main class="mb-5 pb-5">
-  <div class="breadcrumbs-wrap py-5 mb-5">
+  <div class="breadcrumbs-wrap text-center text-md-left py-3 py-md-5 mb-5">
     <div class="container">
       <h1 class="page-title"><?php the_title() ?></h1>
       <ul class="breadcrumbs list-inline">
