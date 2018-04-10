@@ -115,3 +115,159 @@ function faqs_post_type() {
 
 // Hook into the 'init' action
 add_action( 'init', 'faqs_post_type', 0 );
+
+
+
+// Register Jobs Post Type
+function jobs_post_type() {
+
+	$labels = array(
+		'name'                => __( 'Jobs', 'Post Type General Name', 'aalstem' ),
+		'singular_name'       => __( 'Job', 'Post Type Singular Name', 'aalstem' ),
+		'menu_name'           => __( 'Jobs', 'aalstem' ),
+		'parent_item_colon'   => __( 'Parent Job:', 'aalstem' ),
+		'all_items'           => __( 'All Jobs', 'aalstem' ),
+		'view_item'           => __( 'View Job', 'aalstem' ),
+		'add_new_item'        => __( 'Add New Job', 'aalstem' ),
+		'add_new'             => __( 'Add New', 'aalstem' ),
+		'edit_item'           => __( 'Edit Job', 'aalstem' ),
+		'update_item'         => __( 'Update Job', 'aalstem' ),
+		'search_items'        => __( 'Search Job', 'aalstem' ),
+		'not_found'           => __( 'Not found', 'aalstem' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'aalstem' ),
+	);
+	$rewrite = array(
+		'slug'                => 'jobs',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'post_type', 'aalstem' ),
+		'description'         => __( 'AALSTEM Job board', 'aalstem' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'thumbnail'),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => false,
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-welcome-learn-more',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'job', $args );
+
+}
+// Hook into the 'init' action
+add_action( 'init', 'jobs_post_type', 0 );
+
+// Register Companies Post Type
+function companies_post_type() {
+
+	$labels = array(
+		'name'                => __( 'Companies', 'Post Type General Name', 'aalstem' ),
+		'singular_name'       => __( 'Company', 'Post Type Singular Name', 'aalstem' ),
+		'menu_name'           => __( 'Companies', 'aalstem' ),
+		'parent_item_colon'   => __( 'Parent Company:', 'aalstem' ),
+		'all_items'           => __( 'Companies', 'aalstem' ),
+		'view_item'           => __( 'View Company', 'aalstem' ),
+		'add_new_item'        => __( 'Add New Company', 'aalstem' ),
+		'add_new'             => __( 'Add New', 'aalstem' ),
+		'edit_item'           => __( 'Edit Company', 'aalstem' ),
+		'update_item'         => __( 'Update Company', 'aalstem' ),
+		'search_items'        => __( 'Search Company', 'aalstem' ),
+		'not_found'           => __( 'Not found', 'aalstem' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'aalstem' ),
+	);
+	$rewrite = array(
+		'slug'                => 'companies',
+		'with_front'          => false,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'post_type', 'aalstem' ),
+		'description'         => __( 'AALSTEM Job companies', 'aalstem' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'thumbnail'),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu' => 'edit.php?post_type=job',
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => false,
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-welcome-learn-more',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'company', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'companies_post_type', 0 );
+
+
+
+// Register Team Post Type
+function team_post_type() {
+
+	$labels = array(
+		'name'                => __( 'Team', 'Post Type General Name', 'aalstem' ),
+		'singular_name'       => __( 'Team', 'Post Type Singular Name', 'aalstem' ),
+		'menu_name'           => __( 'Team', 'aalstem' ),
+		'parent_item_colon'   => __( 'Parent Team:', 'aalstem' ),
+		'all_items'           => __( 'Team', 'aalstem' ),
+		'view_item'           => __( 'View Team', 'aalstem' ),
+		'add_new_item'        => __( 'Add New Team', 'aalstem' ),
+		'add_new'             => __( 'Add New', 'aalstem' ),
+		'edit_item'           => __( 'Edit Team', 'aalstem' ),
+		'update_item'         => __( 'Update Team', 'aalstem' ),
+		'search_items'        => __( 'Search Team', 'aalstem' ),
+		'not_found'           => __( 'Not found', 'aalstem' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'aalstem' ),
+	);
+	$rewrite = array(
+		'slug'                => 'team',
+		'with_front'          => false,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'post_type', 'aalstem' ),
+		'description'         => __( 'AALSTEM Board Members', 'aalstem' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'thumbnail'),
+		'hierarchical'        => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => false,
+		'menu_icon'           => 'dashicons-image-filter',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'team', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'team_post_type', 0 );

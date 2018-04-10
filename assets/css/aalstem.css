@@ -6,7 +6,7 @@ body {
 body {
   color: #333;
   position: relative;
-      font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 body:not(.home) {
@@ -92,7 +92,13 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
   font-weight: 600;
 }
 
-
+#header .btn-donate {
+  color: #ce2228;
+  font-size: 30px;
+  margin-right: .25rem;
+  position: relative;
+  z-index: 99;
+}
 #header .links-section {
   position: relative;
   z-index: 99;
@@ -124,6 +130,7 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
   border-radius: 3px;
   border: 0;
   text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
   font-weight: bold;
   padding: 12px 20px;
 }
@@ -333,7 +340,7 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
   font-weight: 600;
 }
 #about p {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 
 #aalstem-actions {
@@ -375,13 +382,13 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
   transition: all .45s ease;
 }
 #aalstem-actions .volunteer {
-  background-color: #0e1e40;
+  background-color: #1f325f;
   -webkit-box-shadow: 0px 12px 25px 0px rgba(14, 30, 64, 0.43);
   -moz-box-shadow: 0px 12px 25px 0px rgba(14, 30, 64, 0.43);
   box-shadow: 0px 12px 25px 0px rgba(14, 30, 64, 0.43);
 }
 #aalstem-actions .sponsorship {
-  background-color: #14468c;
+  background-color: #1f325f;
   -webkit-box-shadow: 0px 12px 25px 0px rgba(20, 70, 140, 0.43);
   -moz-box-shadow: 0px 12px 25px 0px rgba(20, 70, 140, 0.43);
   box-shadow: 0px 12px 25px 0px rgba(20, 70, 140, 0.43);
@@ -709,7 +716,7 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 
 .testimonial:not(.type-2):not(.testimonial-single) .avatar{padding-right: 20px;}
 
-.testimonial .avatar img{
+.testimonial .avatar img {
   border-radius: 50%;
   height: auto;
 }
@@ -717,7 +724,7 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 .testimonial .author-name{
   font-size: 18px;
   display: block;
-  color: #666;
+  color: #ce2228;
 }
 
 .testimonial .author-position,
@@ -1071,6 +1078,12 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
   padding: 100px 0 180px 0;
   text-align: center;
 }
+.signup-page .header a{
+  color: #ce2028;
+}
+.signup-page .header a:hover {
+  color: #1e3160;
+}
 .signup-page .header h1{
   margin-bottom: 50px;
   font-weight: 900;
@@ -1096,7 +1109,8 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 }
 
 .tml-register .message,
-.tml-lostpassword .message
+.tml-lostpassword .message,
+.tml-resetpass .message
  {
   display: none;
 }
@@ -1247,6 +1261,9 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 }
 .jobs-listings .items-wrapper {
   position: relative;
+  height: 80vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .jobs-listings .items-wrapper::after {
   content: "";
@@ -1268,6 +1285,7 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 }
 .job-item h2 {
   font-size: 16px;
+  font-weight: 700;
   margin-bottom: 0;
 }
 .job-item a:hover h2 {
@@ -1460,6 +1478,184 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
   height: auto;
 }
 
+/* The actual timeline (the vertical ruler) */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #e7ecf3;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline h2 {
+  font-size: 1.6rem;
+}
+.timeline p {
+  color: hsla(360, 100%, 100%, 0.5);
+}
+
+/* Container around content */
+.container-left,
+.container-right {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+/* The circles on the timeline */
+.container-left::after,
+.container-right::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -13px;
+    background-color: white;
+    border: 4px solid #ce2128;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Place the container to the left */
+.container-left {
+    left: 0;
+}
+
+/* Place the container to the right */
+.container-right {
+    left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.container-left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #20335f;
+}
+
+/* Add arrows to the right container (pointing left) */
+.container-right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #20335f transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.container-right::after {
+    left: -12px;
+}
+
+/* The actual content */
+.timelime .content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+    left: 31px;
+  }
+
+  /* Full-width containers */
+  .container-left,
+  .container-right {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  /* Make sure that all arrows are pointing leftwards */
+  .container-left::before,
+  .container-right::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .container-left::after,
+  .container-right::after {
+    left: 15px;
+  }
+
+  /* Make all right containers behave like the left ones */
+  .container-right {
+    left: 0%;
+  }
+}
+
+/* TEAM MEMBERS */
+.team-member img{
+  width: 100%;
+  height: auto;
+  display: block;
+  text-align: center;
+}
+.team-member .linkedin {
+  transition: box-shadow .3s ease;
+  margin: -20px auto 0;
+  background-color: #ce2128;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 100%;
+  font-size: 18px;
+
+}
+.team-member:hover .linkedin {
+  /* transform: scale(1.2); */
+  box-shadow:
+    0 0px 0 4px rgba(203, 33, 40,.3),
+    0 0px 0 8px rgba(203, 33, 40,.2),
+    0 0px 0 12px rgba(203, 33, 40,.1)
+  ;
+}
+.team-member .card-body {
+  padding-top: 1.5rem;
+}
+.team-member h5 {
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: calc(.2em + 1vw);
+}
+.team-member p {
+  color: #777;
+  font-size: 14px;
+}
+
 /* FORM ELEMENTS */
 input[type=date],
 input[type=email],
@@ -1565,6 +1761,12 @@ label {
   display: none;
 }
 
+
+.page-template-template-programs section p {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
 @media screen and (max-width: 1200px) {
   img.alignright,
   img.alignleft,
@@ -1611,11 +1813,15 @@ label {
     width: 40%;
   }
 
+  .team-member h5 {
+    font-size: calc(.5em + 1vw);
+  }
+
 }
 
 @media screen and (max-width: 768px) {
   body:not(.home) {
-    padding-top: 86px;
+    padding-top: 76px;
   }
   h1 {
     font-size: 1.8rem;
@@ -1623,11 +1829,10 @@ label {
 
 
   #header .give-display-button {
-
     margin-left: 0;
     margin-right: 12px;
     position: relative;
-    top: -8px;
+    top: -2px;
   }
   #header .give-btn-modal {
     font-size: 12px;
@@ -1662,8 +1867,12 @@ label {
     margin: 0 3px;
     display: inline-block;
   }
+  .home-section {
+    padding: 50px 0;
+  }
 
-  #aalstem-actions .action-item a, #aalstem-actions .action-item.donations {
+  #aalstem-actions .action-item a,
+  #aalstem-actions .action-item.donations {
     padding: 40px 10px 30px;
   }
   #aalstem-actions .volunteer {
@@ -1718,12 +1927,26 @@ label {
       float: none;
       width: 90%;
       margin-right: 0;
-      max-width: 200px;
+      max-width: 140px;
       text-align: center;
       margin: 20px auto 0 auto;
   }
   .testimonial.testimonial-single .testimonial-holder {
-    width: 90%;
+    width: 100%;
+  }
+  #testimonials .owl-dots {
+    right: auto;
+    top: unset;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    bottom: -20px;
+    width: 100%;
+  }
+  #testimonials .owl-dots .owl-dot,
+  #testimonials .owl-dots .owl-dot:not(:last-child)  {
+    display: inline-block;
+    margin: 0 5px;
   }
   #footer .btn-donate::before {
       left: -2000px;
@@ -1768,7 +1991,17 @@ label {
   .aalstem-event-map>div {
     height: 180px !important;
   }
-
+  .page-template-template-programs section p,
+  .testimonial-holder p {
+    font-size: 1rem;
+  }
+  .team-member .card-body {
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+  .team-member h5 {
+    font-size: .9rem;
+  }
   input[type=date],
   input[type=email],
   input[type=number],
