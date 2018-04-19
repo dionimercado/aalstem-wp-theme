@@ -27,21 +27,19 @@ foreach($string as $items) {
   ?>
   <!-- <pre><?php //print_r($items) ?></pre> -->
   <p><?php _e( $items['text'] ) ?></p>
-  <p class="text-muted"><?php _e( date( 'F d, Y', strtotime($items['created_at'])) ) ?></p>
+  <p style="color: rgba(255,255,255,.4);"><?php _e( date( 'F d, Y', strtotime($items['created_at'])) ) ?></p>
   <a class="text-white text-uppercase" href="<?php echo esc_url( 'https://twitter.com/intent/retweet?tweet_id=' . $items['id'] ) ?>"><?php _e( 'Retweet' ) ?></a>
   <span class="text-muted"> | </span>
   <a class="text-white text-uppercase" href="<?php echo esc_url( 'https://twitter.com/intent/follow?screen_name=' .$items['user']['screen_name'] ) ?>"><?php _e( 'Follow' ) ?></a>
-  <!--
+  <?php
         // echo "Time and Date of Tweet: ".$items['created_at']."<br />";
-        echo "Tweet: ". $items['text']."<br />";
-        echo '<a href="">Retweet</a>';
+        // echo "Tweet: ". $items['text']."<br />";
+        // echo '<a href="">Retweet</a>';
         // echo "Tweeted by: ". $items['user']['name']."<br />";
         // echo "Screen name: ". $items['user']['screen_name']."<br />";
         // echo "Followers: ". $items['user']['followers_count']."<br />";
         // echo "Friends: ". $items['user']['friends_count']."<br />";
         // echo "Listed: ". $items['user']['listed_count']."<br /><hr />";
--->
-    <?php
   }
 
 ?>

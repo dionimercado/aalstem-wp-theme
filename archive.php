@@ -1,15 +1,14 @@
 <?php get_header() ?>
 
 <main class="mb-5 pb-5">
-  <div class="breadcrumbs-wrap py-4 py-md-5 mb-4 mb-md-5 text-center text-md-left">
+  <div class="breadcrumbs-wrap text-center py-5 mb-4 mb-lg-5">
     <div class="container">
-      <h1 class="page-title">News &amp; Media</h1>
-      <ul class="breadcrumbs list-inline">
-        <li class="list-inline-item"><a href="/">Home</a></li>
-        <li class="list-inline-item">News &amp; Media</li>
-      </ul>
+      <h1 class="page-title"><?php _e( 'News &amp; Updates' ) ?></h1>
     </div>
+    <img class="atom" src="<?php echo get_template_directory_uri() ?>/assets/images/icon-atom.svg" alt="">
+    <img class="bulb" src="<?php echo get_template_directory_uri() ?>/assets/images/icon-bulb.svg" alt="">
   </div>
+
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
@@ -18,7 +17,7 @@
         $post_thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
 
         ?>
-        <article class="aalstem-post mb-5">
+        <article class="aalstem-post mb-5  wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
           <div class="post-attachment mb-4">
             <a href="<?php the_permalink() ?>"><img class="img-fluid" src="<?php echo $post_thumb[0]; ?>&amp;resize=750,450" alt="<?php the_title(); ?>" /></a>
           </div>

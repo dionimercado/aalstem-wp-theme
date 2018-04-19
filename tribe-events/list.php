@@ -36,9 +36,9 @@ do_action( 'tribe_events_before_template' );
     <div class="row">
       <div class="col-md-7 col-lg-6">
 				<div class="p-4 pl-md-0 py-5 py-md-5 pr-md-5">
-					<span class="sub mb-3"><?php _e( 'Upcoming Event' ) ?></span>
-					<h2><?php the_title() ?></h2>
-					<p>
+					<span class="sub mb-3 wow bounceInDown" data-wow-duration="1s" data-wow-delay="0s"><?php _e( 'Upcoming Event' ) ?></span>
+					<h2 class=" wow fadeIn" data-wow-duration="1s" data-wow-delay="0s"><?php the_title() ?></h2>
+					<p class=" wow fadeInUp" data-wow-duration="1s" data-wow-delay="500ms">
 						<i class="fas fa-map-marker-alt"></i>
 						<?php echo get_post_meta( get_post_meta( get_the_ID(), '_EventVenueID', true), '_VenueAddress', true ) ?>,
 						<?php echo get_post_meta( get_post_meta( get_the_ID(), '_EventVenueID', true), '_VenueCity', true ) ?>
@@ -47,7 +47,7 @@ do_action( 'tribe_events_before_template' );
           <div class="countdown my-5">
             <div data-countdown="<?php echo get_post_meta(get_the_ID(), '_EventStartDate', true) ?>"></div>
           </div>
-					<a href="<?php the_permalink() ?>" class="btn btn-primary"><?php _e( 'View event details' ) ?></a>
+					<a href="<?php the_permalink() ?>" class="btn btn-primary wow fadeInUp" data-wow-duration="1s" data-wow-delay="1500ms"><?php _e( 'View event details' ) ?></a>
 				</div>
       </div>
     </div>
@@ -79,7 +79,7 @@ do_action( 'tribe_events_before_template' );
 		  while( $featured->have_posts() ) : $featured->the_post();
 			$past_flyer = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
 		?>
-		<div class="col-md-6">
+		<div class="col-md-6 wow zoomIn" data-wow-duration="1s" data-wow-delay="0s">
 			<div class="aalstem-event-item rounded mb-4">
 				<a class="past-flyer" href="<?php the_permalink() ?>" style="background-image: url(<?php echo $past_flyer[0] ?>);"></a>
 				<div class="aalstem-event-content p-4">

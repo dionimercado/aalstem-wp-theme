@@ -6,10 +6,10 @@
           <!-- Begin MailChimp Signup Form -->
           <div class="newsletter-form py-4 p-lg-5 bg-col-1">
             <div class="row">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
+              <div class="col-md-4 d-flex align-items-center justify-content-center wow slideInLeft" data-wow-duration="1s" data-wow-delay="0s">
                 <h5 class="f-20 mb-3 mb-md-0 text-white text-center text-uppercase">Join our newsletter</h5>
               </div>
-              <div class="col-md-8">
+              <div class="col-md-8 wow slideInRight" data-wow-duration="1s" data-wow-delay="0s">
                 <form action="https://dionimercado.us14.list-manage.com/subscribe/post?u=c84d33d7d0a554f6988195f5b&amp;id=443f1cf726" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="bg-white rounded form-inline validate m-0 p-0" target="_blank" novalidate="">
                   <div class="input-group d-flex flex-row w-100">
                     <input type="text" name="EMAIL" class="form-control border-0 required email w-75" id="mce-EMAIL" placeholder="Email address">
@@ -67,7 +67,7 @@
           </div>
           <a href="#">Privacy Policy</a>
           <span class="mx-2">&bullet;</span>
-          <a href="#">Terms &amp; Conditions</a>
+          <a href="<?php echo get_the_permalink('460') ?>">Terms &amp; Conditions</a>
         </div>
       </div>
       <div class="row">
@@ -79,6 +79,7 @@
   </div>
 </footer>
 <?php wp_footer() ?>
+<script> new WOW().init(); </script>
 
 </body>
 </html>

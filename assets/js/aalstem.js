@@ -2,8 +2,10 @@ jQuery( function($) {
 
     // Offcanvas Menu
     jQuery('[data-toggle="offcanvas"]').on('click', function () {
-      jQuery('.offcanvas-collapse').toggleClass('open')
+      jQuery('.offcanvas-collapse').toggleClass('open');
+      jQuery(this).toggleClass('open')
     });
+
 
     // Smooth scrolling
   	jQuery('.smooth-scrolling').bind('click', function(event) {
@@ -13,6 +15,25 @@ jQuery( function($) {
   		}, 800, 'easeInOutExpo');
   		event.preventDefault();
   	});
+
+
+    jQuery('.logos-scroll').owlCarousel({
+        slideBy: 'page',
+        // // rewind: true,
+        loop:true,
+        margin:10,
+        dots: false,
+        nav: false,
+        // // lazyLoad: true,
+        autoWidth:true,
+        autoplay:true,
+        autoplayHoverPause:true,
+        autoplayTimeout:5000,
+        autoplaySpeed: 1500,
+        // smartSpeed: 1000,
+        // // fluidSpeed: 1000
+    });
+
 
     // Testimonials Carousel
     jQuery('.owl-testimonials').owlCarousel({
@@ -26,7 +47,8 @@ jQuery( function($) {
       items:1,
       slideBy: 1,
       dots: true,
-      transitionStyle: "backSlide"
+      animateOut: 'fadeOutDown',
+      animateIn: 'fadeInDown'
     });
 
 

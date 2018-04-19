@@ -7,13 +7,13 @@ body {
   color: #333;
   position: relative;
   font-family: "Open Sans", sans-serif;
-}
-
-body:not(.home) {
   padding-top: 106px;
 }
 
+
+
 :focus,
+button:focus,
 input:focus {
   outline: none;
   box-shadow: none;
@@ -60,7 +60,12 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 .text-secondary {
   color: #ce2128 !important;
 }
-
+.text-muted-dark {
+  color: hsl(0,0%,20%, .6) !important;
+}
+.text-muted-light {
+  color: hsl(0,0%,100%, .5) !important;
+}
 .truncate-text {
   width: 100%;
   white-space: nowrap;
@@ -92,7 +97,7 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
   font-weight: 600;
 }
 
-#header .btn-donate {
+#header .btn-mobile-donate {
   color: #ce2228;
   font-size: 30px;
   margin-right: .25rem;
@@ -107,11 +112,60 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 #header .navbar-brand {
   z-index: 99;
 }
+
+#header .navbar-toggler-icon {
+  background-image: none !important;
+  background-color: #1e3160;
+  height: 2px;
+  width: 1.7rem;
+  position: relative;
+}
+#header .navbar-toggler-icon::before,
+#header .navbar-toggler-icon::after {
+  content: "";
+  background-color: #1e3160;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  height: inherit;
+
+  -webkit-transform: rotate(0) translateX(0);
+  -ms-transform: rotate(0) translateX(0);
+  transform: rotate(0) translateX(0);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+
+}
+#header .navbar-toggler-icon::before  {
+  top: -.6rem;
+}
+#header .navbar-toggler-icon::after  {
+  bottom: -.6rem;
+}
+
+#header .open .navbar-toggler-icon {
+  background-color: transparent;
+}
+#header .open .navbar-toggler-icon::before  {
+  top: 0;
+
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+#header .open .navbar-toggler-icon::after  {
+  bottom: 0rem;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 #header .give-display-button {
   display: inline-block;
-  margin-right: 35px;
+  margin-right: 3.5rem;
   position: relative;
-  top: -6px;
+  top: -.5rem;
   z-index: 99;
 }
 #header .give-display-button>form {
@@ -119,7 +173,8 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 }
 
 
-#header .give-btn-modal {
+#header .give-btn-modal,
+#header .btn-donate {
   background: #ce2128;
   color: #fff;
   -webkit-box-shadow: 0px 12px 25px 0px rgba(191, 13, 62, 0.43);
@@ -196,7 +251,7 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 }
 
 #header .navbar-nav > li > a{
-  padding: 16px 130px 16px 20px;
+  padding: 16px 67px 16px 20px;
   display: block;
   font-family: 'Lato', sans-serif;
 }
@@ -366,6 +421,10 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
   opacity: 0.7;
   transition: all .45s ease;
   margin-bottom: 30px;
+  transition: opacity .3s;
+}
+#aalstem-actions a:hover i {
+  opacity: 1;
 }
 #aalstem-actions .action-item {
   color: #d2d2d2;
@@ -655,8 +714,9 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
     color: #fff;
   }
 
-  .widget-holder .entry .entry-title a{
+  .widget-holder .entry .entry-title a {
     border-bottom: 1px solid transparent;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.3);
   }
 
   .widget-holder .entry .entry-title a:hover{
@@ -848,7 +908,11 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
   box-shadow: 0px 12px 25px 0px rgba(13, 47, 93, 0.43);
 }
 
-
+#partners-sponsors .logos-scroll {
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
 #partners-sponsors img {
   height: 70px;
   width: auto;
@@ -1066,9 +1130,10 @@ img.gear {
 }
 img.bulb {
   left: unset;
-  right: 1%;
+  right: 0;
   top: 1rem;
   height: 100%;
+  opacity: .3;
 }
 img.energy {
   left: unset;
@@ -1081,10 +1146,9 @@ img.puzzle {
   top: 2rem;
 }
 img.atom {
-  top: unset;
-  left: 18%;
-  bottom: 16%;
-  opacity: 1;
+  top: 25%;
+  left: 2%;
+  opacity: .5;
 }
 img.oval1 {
   opacity: 1;
@@ -1143,17 +1207,20 @@ img.oval3 {
 }
 
 /* Sign In & Sign Up */
-.page-template-template-signin {
+.page-template-template-signin,
+.page-template-template-contact {
   background-color: #e7ecf3 !important;
   padding-top: 0 !important;
 }
-.page-template-template-signin #header {
+.page-template-template-signin #header,
+.page-template-template-contact #header {
   border-bottom: 1px solid transparent;
   background-color: #e7ecf3 !important;
   box-shadow: none !important;
   position: relative !important;
 }
-.page-template-template-signin #footer {
+.page-template-template-signin #footer,
+.page-template-template-contact #footer {
   margin-top: 0;
 }
 
@@ -1340,28 +1407,14 @@ img.oval3 {
 
 /* JOB LISTINGS */
 .jobs-listings {
-  overflow: hidden;
 }
 .jobs-listings .items-wrapper {
   position: relative;
-  height: 80vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
 }
-.jobs-listings .items-wrapper::after {
-  content: "";
-  display: block;
-  width: 120px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: -120px;
-  z-index: 0;
-  background: linear-gradient(to right,#e7ecf3,transparent);
-}
+
 .job-item {
-  border-left: 4px solid #14468c;
-  box-shadow: 2px 2px 5px rgba(0,0,0,.1);
+  border-left: 0 solid #14468c;
+  box-shadow: 0px 2px 5px rgba(0,0,0,.1);
 }
 .job-item a:hover {
   color: #000;
@@ -1410,6 +1463,18 @@ img.oval3 {
   font-size: 9px;
   padding: 2px 7px;
   border-radius: 30px;
+}
+.job-company {
+  box-shadow: 0 0 0 10px rgba(255,255,255,.2), 0 0 0 20px rgba(255,255,255,.1);
+}
+.job-single .job-title {
+  font-size: 1.4rem;
+  margin: .5rem 0;
+}
+.job-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1f325f;
 }
 
 /* EVENTS PAGE */
@@ -1546,6 +1611,33 @@ img.oval3 {
   display: block;
 }
 
+/* CONTACT PAGE */
+.contact-info h4 {
+  font-weight: 700;
+}
+.contact-info p {
+  color: rgba(255,255,255,.8);
+}
+.contact-info a {
+  color: rgba(255,255,255,.8);
+}
+.contact-info a:hover {
+  color: rgba(255,255,255,1);
+}
+
+.contact-socials a {
+  color: rgba(255,255,255,.6);
+  font-size: 20px;
+  padding: 0.5rem;
+}
+.contact-socials a:hover {
+  color: #fff;
+}
+
+.gform_wrapper ul.gform_fields li.gfield {
+  padding-right: 0 !important;
+}
+
 /* COMPANIES PAGE */
 .companies-grid {
   background-color: #f1f1f1;
@@ -1553,7 +1645,7 @@ img.oval3 {
 .companies-grid .company-brand {
 
 }
-.companies-grid .company-brand:hoverf {
+.companies-grid .company-brand:hover {
   box-shadow: 1px 13px 25px rgba(0,0,0,0.1);
 }
 .companies-grid .company-brand img {
@@ -1739,6 +1831,37 @@ img.oval3 {
   font-size: 14px;
 }
 
+
+
+.donation-form .give-total-wrap,
+.donation-form #give-donation-level-button-wrap {
+  background-color: #1f325f;
+  display: inline-block;
+  color: #fff;
+  padding: 2rem !important;
+  margin-bottom: 0;
+}
+.donation-form .give-donation-amount {
+  margin-bottom: 5px !important;
+}
+
+.donation-form legend {
+  border-bottom: 1px solid rgba(32, 51, 95, .15) !important;
+}
+.donation-form .give-donation-levels-wrap .give-btn {
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  color: #fff;
+  padding: .4rem 1.3rem;
+  margin-bottom: 0 !important;
+  font-weight: 600;
+}
+.donation-form #give-payment-mode-select {
+    margin-top: 3rem;
+}
+
+
 /* FORM ELEMENTS */
 input[type=date],
 input[type=email],
@@ -1753,7 +1876,7 @@ select,
   border: 2px solid #eee;
   border-radius: 3px;
   /* width: 100%!important; */
-  padding: 10px 20px;
+  padding: 5px 20px !important;
   height: 50px;
   background: #fff;
   -webkit-appearance: none;
@@ -1807,7 +1930,21 @@ label {
   -moz-box-shadow: 0px 12px 25px 0px rgba(191, 13, 61, 0.43);
   box-shadow: 0px 12px 25px 0px rgba(191, 13, 61, 0.43);
 }
+.btn-primary:focus {
+  border-color: #ce2028 !important;
+  background: #ce2028 !important;
+  box-shadow: none !important;
+}
 
+.btn-secondary {
+    color: #1f325f !important;
+    border-color: #1f325f;
+}
+.btn-secondary:hover {
+    color: #fff !important;
+    background-color: #1f325f !important;
+    border-color: #1f325f !important;
+}
 
 .btn-default {
   padding: 10px 30px;
@@ -1817,14 +1954,31 @@ label {
   font-size: 14px;
   text-transform: uppercase;
   border-radius: 3px;
-  background: #eee;
-  color: #333;
+  background: #ce2128;
+  color: #fff;
   text-align: center;
   line-height: 24px;
   letter-spacing: 0.8px;
-  -webkit-box-shadow: 0px 12px 25px 0px rgba(187, 187, 187, 0.43);
-  -moz-box-shadow: 0px 12px 25px 0px rgba(187, 187, 187, 0.43);
-  box-shadow: 0px 12px 25px 0px rgba(187, 187, 187, 0.43);
+  -webkit-box-shadow: 0px 12px 25px 0px rgba(191, 13, 62, 0.43);
+  -moz-box-shadow: 0px 12px 25px 0px rgba(191, 13, 62, 0.43);
+  box-shadow: 0px 12px 25px 0px rgba(191, 13, 62, 0.43);
+}
+
+.btn-default:hover {
+  color: #fff;
+}
+.btn:focus {
+  box-shadow: none;
+}
+
+.btn-outline-default {
+  border-color: rgba(255,255,255,.5);
+  border-radius: 50px;
+  color: #fff;
+}
+.btn-outline-default:hover {
+  background-color: rgba(255,255,255,1);
+  color: #1f325f;
 }
 
 .btn-link:hover,
@@ -1903,7 +2057,7 @@ label {
 }
 
 @media screen and (max-width: 768px) {
-  body:not(.home) {
+  body {
     padding-top: 76px;
   }
   h1 {
@@ -1922,18 +2076,14 @@ label {
     margin-bottom: 0 !important;
   }
   .offcanvas-collapse {
-    left: 0;
-    right: auto;
+    right: 0;
     padding-top: 100px;
     width: 100%;
-    -webkit-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    -o-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
-
-  #header .navbar-nav {
-    text-align: left;
+    max-width: 100%;
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
   }
 
   #hero .social-icons {
@@ -2049,7 +2199,7 @@ label {
 
 
   .breadcrumbs-wrap .page-title {
-    font-size: 36px;
+    font-size: 30px;
     line-height: 34px;
   }
   .signup-page .header {
@@ -2080,6 +2230,11 @@ label {
   .testimonial-holder p {
     font-size: 1rem;
   }
+
+  .page-template-template-contact .signup-page .form-content {
+    box-shadow: 0 0 5px rgba(0,0,0,0);
+  }
+
   .team-member .card-body {
     padding-left: .5rem;
     padding-right: .5rem;
@@ -2099,9 +2254,12 @@ label {
     padding: 7px 10px;
   }
 
-  img.atom,
-  img.oval3 {
-    opacity: .1;
+  img.atom {
+    opacity: .5;
     height: 40px;
+  }
+  .btn-outline-default {
+    background-color: rgba(255,255,255,1);
+    color: #1f325f;
   }
 }

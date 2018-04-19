@@ -1,15 +1,17 @@
+
 <?php
 $company_id = get_post_meta( get_the_ID(), 'company', true );
 $company_location = get_post_meta( $company_id, 'location', true );
 $company_address = explode(", ", $company_location['address']);
+$company_state = explode(" ", $company_address[2]);
 ?>
-<article class="job-item bg-white px-4 py-3 my-4 rounded">
-  <a href="<?php the_permalink() ?>">
+<article class="job-item bg-white px-0 pr-lg-4 py-4 py-lg-0 my-4 rounded">
+  <a href="<?php the_permalink() ?>" <?php if( ! is_user_logged_in() ) : echo 'data-toggle="modal" data-target="#jobModal"'; endif; ?>>
     <div class="row">
       <div class="col-sm-2 text-center">
         <?php
         if( has_post_thumbnail($company_id) ) {
-          echo get_the_post_thumbnail( $company_id, 'thumbnail', array( 'class' => 'img-fluid p-3' ) );
+          echo get_the_post_thumbnail( $company_id, 'thumbnail', array( 'class' => 'img-fluid p-4' ) );
         }
         ?>
       </div>
@@ -24,8 +26,8 @@ $company_address = explode(", ", $company_location['address']);
         <div>
           <div class="d-flex flex-column flex-sm-row text-center text-sm-left justify-content-between">
             <div class="d-flex text-center text-sm-center justify-content-center">
-              <span class="text-muted mr-1"><i class="far fa-building"></i> <?php echo get_the_title( $company_id ) ?></span>
-              <span class="text-muted ml-1"><i class="fas fa-map-marker-alt"></i> <?php echo $company_address[1] . ", " . $company_address[2] ?></span>
+              <span class="text-muted-dark mr-1"><i class="far fa-building"></i> <?php echo get_the_title( $company_id ) ?></span>
+              <span class="text-muted-dark ml-1"><i class="fas fa-map-marker-alt"></i> <?php echo $company_address[1] . ", " . $company_state[0] ?></span>
             </div>
             <div class="">
               <ul class="skills-list">

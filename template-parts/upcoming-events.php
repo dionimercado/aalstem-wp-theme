@@ -18,9 +18,11 @@
       //   )
       // )
     ));
+    $count = 0;
     while( $events->have_posts() ) : $events->the_post();
+      $count++;
   ?>
-  <a class="d-block mb-3" href="<?php the_permalink() ?>">
+  <a class="d-block mb-3 wow fadeInRight" data-wow-duration="1s" data-wow-delay="<?php echo $count/5 ?>s" href="<?php the_permalink() ?>">
     <div class="row">
       <div class="col-3">
         <div class="event-date">

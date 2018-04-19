@@ -21,14 +21,14 @@
       <div class="links-section d-none d-md-inline-block">
         <a href="<?php echo get_the_permalink( '354' ) ?>" class="mr-4 btn-donate d-none d-md-inline-block give-btn position-relative" style="top: -6px;  margin-right: 10px;"><i class="fas fa-donate"></i> <?php _e( 'Donate' ) ?></a>
         <?php if( is_user_logged_in() ) : ?>
-          <a class="position-relative d-none d-md-inline-block dropdown-toggle no-chev" style="top: 5px; margin-right: 10px;" href="<?php echo get_the_permalink( '159' ) ?>" id="account" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle" style="font-size: 2.8em;"></i><?php //_e( 'Dashboard' ) ?></a>
+          <a class="position-relative d-none d-md-inline-block dropdown-toggle no-chev" style="top: 5px; margin: 0 10px;" href="<?php echo get_the_permalink( '159' ) ?>" id="account" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle" style="font-size: 2.8em;"></i><?php //_e( 'Dashboard' ) ?></a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="<?php echo get_the_permalink( '207' ) ?>"><?php _e( 'Dashboard' ) ?></a>
             <a class="dropdown-item" href="<?php echo get_the_permalink( '159' ) ?>"><?php _e( 'My Profile' ) ?></a>
             <a class="dropdown-item" href="<?php echo wp_logout_url() ?>"><?php _e( 'Log Out' ) ?></a>
           </div>
         <?php else: ?>
-          <a class="position-relative d-none d-md-inline-block" style="top: 5px; margin-right: 10px;" href="<?php echo get_the_permalink( '151' ) ?>"><i class="fas fa-user-circle" style="font-size: 2.8em;"></i></a>
+          <a class="position-relative d-none d-md-inline-block" style="top: 5px; margin: 0 10px;" href="<?php echo get_the_permalink( '151' ) ?>"><i class="fas fa-user-circle" style="font-size: 2.8em;"></i></a>
         <?php endif; ?>
       </div>
     </div>
@@ -39,9 +39,14 @@
 
     <div class="navbar-collapse offcanvas-collapse collapse" id="aalstemNavigation">
       <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => '', 'menu_id' => '', 'menu_class' => 'navbar-nav mr-auto', 'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback', 'walker' => new WP_Bootstrap_Navwalker() ) ); ?>
-      <div class="d-block d-lg-none text-center mt-5">
-        <a href="#" class="btn btn-default"><?php _e( 'Sign In' ) ?></a>
-        <a href="#" class="btn btn-primary mx-3"><?php _e( 'Sign Up' ) ?></a>
+      <div class="d-block d-lg-block text-center mt-5">
+      <?php if( !is_user_logged_in() ) : ?>
+        <a href="<?php echo get_the_permalink('151') ?>" class="btn btn-default"><?php _e( 'Sign In' ) ?></a>
+        <a href="<?php echo get_the_permalink('153') ?>" class="btn btn-primary mx-3"><?php _e( 'Sign Up' ) ?></a>
+      <?php else : ?>
+        <a href="<?php echo get_the_permalink('207') ?>" class="btn btn-default"><?php _e( 'Dashboard' ) ?></a>
+        <a href="<?php echo wp_logout_url() ?>" class="btn btn-secondary mx-3"><?php _e( 'Log Out' ) ?> <i class="fas fa-sign-out-alt"></i></a>
+      <?php endif ?>
       </div>
     </div>
   </nav>

@@ -17,6 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 <main class="aalstem-events-pg-template mb-md-5">
+	
 	<?php tribe_events_before_html(); ?>
 	<?php tribe_get_view(); ?>
 	<?php tribe_events_after_html(); ?>

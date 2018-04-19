@@ -14,23 +14,23 @@
 <section id="about" class="home-section text-center text-lg-left">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6 my-auto">
+      <div class="col-lg-6 my-auto wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0s">
         <h1>Welcome to <strong class="text-secondary">AALSTEM</strong></h1>
         <p>American Association of Latinos in STEM (AALSTEM) consists of a group of established technical professionals that is focused on encouraging and supporting the Latino youth in pursuing careers in Science, Technology, Engineering, and Math.</p>
         <p>We are also committed to further developing Latino professionals in an effort to improve their careers and help realize their full potential. We strive to achieve our mission through leadership, mentorship, education, and by providing professional development activities and networking events.</p>
       </div>
-      <div class="d-none d-lg-block col-lg-6">
+      <div class="d-none d-lg-block col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0s">
         <img class="img-fluid p-5" src="/wp-content/uploads/2018/04/svg.png" alt="">
       </div>
     </div>
   </div>
 </section>
 
-<section id="aalstem-actions" class="">
+<section id="aalstem-actions">
   <div class="container extra-size">
     <div class="row">
       <div class="col-md-3">
-        <div class="action-item volunteer">
+        <div class="action-item volunteer wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0s">
           <a href="<?php echo get_the_permalink( '290' ) ?>">
             <i class="fas fa-bullhorn"></i>
             <h5><?php _e( 'Get Involved' ) ?></h5>
@@ -39,13 +39,13 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div class="action-item donations">
+        <div class="action-item donations wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
           <h5><?php _e( 'Make a donation' ) ?></h5>
           <?php echo do_shortcode('[give_form id="160" display_style="modal" show_title="false"]') ?>
         </div>
       </div>
       <div class="col-md-3">
-        <div class="action-item sponsorship">
+        <div class="action-item sponsorship wow fadeInRight" data-wow-duration="1s" data-wow-delay="0s">
           <a href="<?php echo get_post_type_archive_link('company') ?>">
             <i class="far fa-handshake"></i>
             <h5><?php _e( 'Sponsorship' ) ?></h5>
@@ -65,12 +65,11 @@
     <div class="row">
       <div class="col-lg-8 p-0 m-0">
         <?php
-          // echo do_shortcode('[rev_slider alias="news-feed"]');
           $posts = new WP_Query( array('post_type' => 'post', 'showposts' => 1, 'offset' => 1) );
           while( $posts->have_posts() ) : $posts->the_post();
             $post_thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
         ?>
-        <article class="entry">
+        <article class="entry wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
           <div class="entry-attachment">
             <figure class="thumbnail-attachment">
               <img class="img-fluid" src="<?php echo $post_thumb[0]; ?>&amp;resize=750,400" alt="<?php the_title(); ?>" />
@@ -92,7 +91,7 @@
       <div class="col-lg-4 p-0 m-0">
         <?php get_template_part( 'template-parts/upcoming', 'events' ); ?>
       </div>
-      <div class="col-lg-4 p-0 m-0">
+      <div class="col-lg-4 p-0 m-0 wow zoomIn" data-wow-duration="1s" data-wow-delay="0s">
         <div class="widget-instagram text-white h-100">
           <header class="mb-3">
             <i class="fab fa-instagram fa-2x"></i>
@@ -105,7 +104,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 p-0 m-0">
+      <div class="col-lg-4 p-0 m-0 wow zoomIn" data-wow-duration="1s" data-wow-delay="0s">
         <div style="background: #14468c;" class="widget-twitter text-white h-100">
           <header class="mb-3">
             <i class="fab fa-twitter fa-2x"></i>
@@ -118,14 +117,14 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 p-0 m-0">
+      <div class="col-lg-4 p-0 m-0 wow zoomIn" data-wow-duration="1s" data-wow-delay="0s">
         <?php get_template_part( 'template-parts/featured', 'video' ); ?>
       </div>
     </div>
   </div>
 </section>
 
-<section id="testimonials" class="home-section">
+<section id="testimonials" class="home-section wow pulse" data-wow-duration="1s" data-wow-delay="0s">
   <div class="block-header text-center">
     <h1><?php _e( 'Testimonials' ) ?></h1>
   </div>
@@ -140,7 +139,7 @@
           <div>
             <div class="testimonial testimonial-single">
               <div class="author-box">
-                <a href="#" class="avatar">
+                <span class="avatar">
                   <?php
                   if ( has_post_thumbnail() ) {
                       the_post_thumbnail();
@@ -149,7 +148,7 @@
                       echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/assets/images/no-avatar.gif" />';
                   }
                   ?>
-                </a>
+                </span>
               </div>
               <div class="testimonial-holder text-center text-lg-left">
                 <blockquote>
@@ -157,7 +156,6 @@
                 </blockquote>
                 <div class="author-info">
                   <h6 class="author-name"><?php the_title() ?></h6>
-                  <!-- <span class="author-position">Congresswoman</span> -->
                 </div>
               </div>
             </div>
@@ -169,7 +167,7 @@
   </div>
 </section>
 
-<section id="partners-sponsors" class="bg-light home-section text-center">
+<section id="partners-sponsors" class="bg-light home-section text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="0s">
   <div class="block-header mb-5">
     <h1 class="pl-3"><?php _e( 'Partners <span>&amp;</span> Sponsors' ) ?></h1>
   </div>
