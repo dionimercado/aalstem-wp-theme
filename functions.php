@@ -49,8 +49,11 @@ add_action( 'after_setup_theme', 'custom_theme_features' );
 // Register Custom Navigation Walker
 require_once get_stylesheet_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 
-// Post Types and Taxonomies
+// Theme my login
 include_once get_stylesheet_directory() . '/inc/theme-my-login-custom.php';
+
+// Give Donations
+// include_once get_stylesheet_directory() . '/inc/give-donations.php';
 
 // Post Types and Taxonomies
 include_once get_stylesheet_directory() . '/inc/posttypes.php';
@@ -80,6 +83,7 @@ function add_theme_scripts() {
   wp_enqueue_script( 'social-stream', get_stylesheet_directory_uri() . '/assets/js/jquery.social.stream.1.6.2.min.js', array('jquery'), '1.6.2', true );
 	wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/assets/js/jquery.fancybox.min.js', array ( 'jquery' ), '3.2.10', true);
 	wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array ( 'jquery' ), '2.2.1', true);
+	wp_enqueue_script( 'jquery-marquee', 'https://cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js', array ( 'jquery' ), '1.4.0', true);
   wp_enqueue_script( 'jquery.countdown', get_template_directory_uri() . '/assets/js/jquery.countdown.min.js', array ( 'jquery' ), '2.2.0', true);
   wp_enqueue_script( 'aalstem', get_template_directory_uri() . '/assets/js/aalstem.js', array ( 'jquery' ), uniqid(), true);
 
@@ -151,3 +155,36 @@ add_action( 'rest_api_init', function() {
 
 	});
 }, 15 );
+
+
+
+/**
+ * Only Show Current User's Attachments
+ */
+add_filter( 'ajax_query_attachments_args', 'show_current_user_attachments', 10, 1 );
+function show_current_user_attachments( $query = array() ) {
+    $user_id = get_current_user_id();
+    if( $user_id ) {
+        $query['author'] = $user_id;
+    }
+    return $query;
+}
+
+// Admin CSS
+function aasltem_admin_css() {
+
+    echo "
+    <style type='text/css'>
+    	.give-invalid-license { display: none; };
+    }
+    </style>
+    ";
+}
+add_action( 'admin_head', 'aasltem_admin_css' );
+
+
+// Gravity Forms Submit Button Add CSS Class
+add_filter( 'gform_submit_button', 'form_submit_button', 10, 2 );
+function form_submit_button($button, $form) {
+    return '<input type="submit" class="btn btn-default" id="gform_submit_button_' . $form['id'] . '" value="' . $form['button']['text'] . '">';
+}
