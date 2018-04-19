@@ -1,6 +1,6 @@
 <div id="upcoming-events" class="widget-upcoming text-black h-100">
   <header class="mb-4">
-    <h4><?php _e('Upcoming Events') ?></h4>
+    <h4><?php _e('Our Events') ?></h4>
   </header>
   <?php
     $events = new WP_Query( array(

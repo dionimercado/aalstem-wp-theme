@@ -1019,6 +1019,89 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 .breadcrumbs-wrap{
   padding: 60px 20px;
   background-color: #1e3160;
+  position: relative;
+  overflow: hidden;
+}
+.breadcrumbs-wrap::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.breadcrumbs-wrap img {
+  height: 60px;
+  width: auto;
+  opacity: .1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+img.antenna {
+  left: unset;
+  right: 32%;
+  top: 40%;
+  opacity: .3;
+}
+img.science {
+  left: 32%;
+  top: 40%;
+  opacity: .3;
+}
+img.infinity {
+  top: unset;
+  left: 48%;
+  bottom: .5rem;
+  opacity: .3;
+}
+img.gear {
+  left: 1rem;
+  top: 1rem;
+  height: 50%;
+  opacity: 1;
+}
+img.bulb {
+  left: unset;
+  right: 1%;
+  top: 1rem;
+  height: 100%;
+}
+img.energy {
+  left: unset;
+  top: 7rem;
+  opacity: 1;
+  right: 20%;
+}
+img.puzzle {
+  left: 18%;
+  top: 2rem;
+}
+img.atom {
+  top: unset;
+  left: 18%;
+  bottom: 16%;
+  opacity: 1;
+}
+img.oval1 {
+  opacity: 1;
+}
+img.oval2 {
+  top: unset;
+  left: unset;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+}
+img.oval3 {
+  top: unset;
+  left: unset;
+  right: 20%;
+  bottom: 30%;
+  opacity: 1;
 }
 
 .breadcrumbs-wrap .page-title:not(:last-child){
@@ -1044,7 +1127,7 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 }
 
 .breadcrumbs-wrap .breadcrumbs > li > a{
-  color: #999999;
+  color: hsl(0,0%,100%, .5);
 }
 
 .breadcrumbs-wrap .breadcrumbs > li > a:hover{
@@ -1963,6 +2046,8 @@ label {
     height: 40px;
   }
 
+
+
   .breadcrumbs-wrap .page-title {
     font-size: 36px;
     line-height: 34px;
@@ -2012,5 +2097,11 @@ label {
   textarea,
   .acf-input-wrap input {
     padding: 7px 10px;
+  }
+
+  img.atom,
+  img.oval3 {
+    opacity: .1;
+    height: 40px;
   }
 }

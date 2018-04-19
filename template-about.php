@@ -3,15 +3,8 @@
 get_header();
 ?>
 <main class="bg-light pb-5">
-  <div class="breadcrumbs-wrap text-center text-md-left py-3 py-md-5">
-    <div class="container">
-      <h1 class="page-title"><?php the_title() ?></h1>
-      <ul class="breadcrumbs list-inline">
-        <li class="list-inline-item"><a href="<?php echo home_url() ?>">Home</a></li>
-        <li class="list-inline-item"><?php the_title() ?></li>
-      </ul>
-    </div>
-  </div>
+
+  <?php get_template_part('template-parts/breadcrumbs') ?>
 
   <section class="bg-white py-5">
     <div class="container">

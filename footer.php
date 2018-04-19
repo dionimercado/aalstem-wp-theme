@@ -2,18 +2,18 @@
   <div class="ft-top bg-secondary">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-10 mx-auto">
           <!-- Begin MailChimp Signup Form -->
           <div class="newsletter-form py-4 p-lg-5 bg-col-1">
             <div class="row">
               <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <h5 class="f-20 mb-3 mb-md-0 text-white text-center text-uppercase">Join our team</h5>
+                <h5 class="f-20 mb-3 mb-md-0 text-white text-center text-uppercase">Join our newsletter</h5>
               </div>
               <div class="col-md-8">
                 <form action="https://dionimercado.us14.list-manage.com/subscribe/post?u=c84d33d7d0a554f6988195f5b&amp;id=443f1cf726" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="bg-white rounded form-inline validate m-0 p-0" target="_blank" novalidate="">
-                  <div class="input-group d-flex flex-row">
-                    <input type="text" name="EMAIL" class="form-control border-0 required email w-50" id="mce-EMAIL" placeholder="Email address">
-                    <input type="text" name="ZIP" class="form-control border-0 required zip w-25" id="mce-ZIP" placeholder="Zip code">
+                  <div class="input-group d-flex flex-row w-100">
+                    <input type="text" name="EMAIL" class="form-control border-0 required email w-75" id="mce-EMAIL" placeholder="Email address">
+                    <!-- <input type="text" name="ZIP" class="form-control border-0 required zip w-25" id="mce-ZIP" placeholder="Zip code"> -->
                     <span class="input-group-btn w-25">
                       <button class="btn px-3 w-100 h-100 border-left text-uppercase" type="submit" name="subscribe" id="mc-embedded-subscribe">Sign Up</button>
                     </span>
@@ -29,13 +29,13 @@
           </div>
           <!--End mc_embed_signup-->
         </div>
-        <div class="col-md-6 col-lg-4 d-none d-lg-block">
+        <!-- <div class="col-md-6 col-lg-4 d-none d-lg-block">
           <div class="p-0 d-flex align-items-center justify-content-center h-100">
             <a href="/" class="btn-donate p-4	d-flex justify-content-center h-100 w-100 f-20 align-items-center text-white text-uppercase">
               <span><?php _e( 'Donate Today!' ) ?></span>
             </a>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

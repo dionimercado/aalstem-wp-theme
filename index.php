@@ -2,7 +2,7 @@
 
 <section id="hero">
   <?php echo do_shortcode('[rev_slider alias="home-slider"]') ?>
-  <ul class="social-icons style-2 v-type">
+  <ul class="social-icons style-2 v-type d-none">
     <li><a href="https://www.facebook.com/aalstem" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
     <li><a href="https://twitter.com/aalstem" target="_blank"><i class="fab fa-twitter"></i></a></li>
     <li><a href="https://www.instagram.com/aalstem/" target="_blank"><i class="fab fa-instagram"></i></a></li>
@@ -173,16 +173,16 @@
   <div class="block-header mb-5">
     <h1 class="pl-3"><?php _e( 'Partners <span>&amp;</span> Sponsors' ) ?></h1>
   </div>
-  <div class="sponsors-logos">
+  <div class="logos-scroll owl-carousel owl-theme">
     <?php
       $companies = new WP_Query(
         array(
           'post_type' => 'company',
           'meta_query' => array(
             array(
-              'key' => 'is_hidden',
+              'key' => 'is_featured',
               'value' => 1,
-              'compare' => '!='
+              // 'compare' => '!=='
             )
           )
         )
